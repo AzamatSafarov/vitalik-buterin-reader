@@ -1,0 +1,19 @@
+{
+  "name": "vitalik-buterin-reader",
+  "version": "0.1.0",
+  "private": false,
+  "description": "A readable static archive of Vitalik Buterin's public blog posts for research on governance, validation, voting, legitimacy and network states.",
+  "scripts": {
+    "build": "python build_reader.py"
+  },
+  "keywords": [
+    "vitalik-buterin",
+    "blockchain",
+    "governance",
+    "ethereum",
+    "voting",
+    "network-states",
+    "static-site"
+  ],
+  "license": "WTFPL"
+}
