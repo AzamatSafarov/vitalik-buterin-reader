@@ -4,7 +4,7 @@
   "private": false,
   "description": "A readable static archive of Vitalik Buterin's public blog posts for research on governance, validation, voting, legitimacy and network states.",
   "scripts": {
-    "build": "python build_reader.py"
+    "build": "echo static site ready"
   },
   "keywords": [
     "vitalik-buterin",
