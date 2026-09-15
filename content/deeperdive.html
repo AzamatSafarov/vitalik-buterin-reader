@@ -1,18 +1,14 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Deeper dive on cross-L2 reading for wallets and other use cases — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>Deeper dive on cross-L2 reading for wallets and other use cases</h1><div class="meta"><span>2023-06-20</span><span>5101 words</span><a href="https://vitalik.eth.limo/general/2023/06/20/deeperdive.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/deeperdive.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag theme">Privacy, identity, ZK</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Blockchains</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p><em>Special thanks to Yoav Weiss, Dan Finlay, Martin Koppelmann, and the Arbitrum, Optimism, Polygon, Scroll and SoulWallet teams for feedback and review.</em></p>
-<p>In <a href="three_transitions.html">this post on the Three Transitions</a>, I outlined some key reasons why it's valuable to start thinking explicitly about L1 + cross-L2 support, wallet security, and privacy as necessary basic features of the ecosystem stack, rather than building each of these things as addons that can be designed separately by individual wallets.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Deeper dive on cross-L2 reading for wallets and other use cases — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>Deeper dive on cross-L2 reading for wallets and other use cases</h1><div class="meta-row"><span class="pill">2023-06-20</span><span class="pill">5101 words</span><a class="pill" href="https://vitalik.eth.limo/general/2023/06/20/deeperdive.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/deeperdive.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag theme">Privacy, identity, ZK</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Blockchains</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p><em>Special thanks to Yoav Weiss, Dan Finlay, Martin Koppelmann, and the Arbitrum, Optimism, Polygon, Scroll and SoulWallet teams for feedback and review.</em></p>
+<p>In <a href="../index.html#three_transitions">this post on the Three Transitions</a>, I outlined some key reasons why it's valuable to start thinking explicitly about L1 + cross-L2 support, wallet security, and privacy as necessary basic features of the ecosystem stack, rather than building each of these things as addons that can be designed separately by individual wallets.</p>
 <p><strong>This post will focus more directly on the technical aspects of one specific sub-problem: how to make it easier to read L1 from L2, L2 from L1, or an L2 from another L2</strong>. Solving this problem is crucial for implementing an asset / keystore separation architecture, but it also has valuable use cases in other areas, most notably optimizing reliable cross-L2 calls, including use cases like moving assets between L1 and L2s.</p>
 <h2>Recommended pre-reads</h2>
 <ul>
-<li>Post on <a href="three_transitions.html">the Three Transitions</a></li>
+<li>Post on <a href="../index.html#three_transitions">the Three Transitions</a></li>
 <li>Ideas from the Safe team on <a href="https://forum.safe.global/t/how-can-a-safe-hold-asset-on-multiple-chains/2242">holding assets across multiple chains</a></li>
-<li>Why we need wide adoption of <a href="recovery.html">social recovery wallets</a></li>
-<li><a href="snarks.html">ZK-SNARKs</a>, and <a href="using_snarks.html">some privacy applications</a></li>
+<li>Why we need wide adoption of <a href="../index.html#recovery">social recovery wallets</a></li>
+<li><a href="../index.html#snarks">ZK-SNARKs</a>, and <a href="../index.html#using_snarks">some privacy applications</a></li>
 <li><a href="https://dankradfeist.de/ethereum/2020/06/16/kate-polynomial-commitments.html">Dankrad on KZG commitments</a></li>
-<li><a href="verkle.html">Verkle trees</a></li>
+<li><a href="../index.html#verkle">Verkle trees</a></li>
 </ul>
 <h2>Table of contents</h2>
 <ul>
@@ -38,7 +34,7 @@
 <p>With <a href="https://ethereum.org/en/developers/docs/accounts/">EOAs</a>, all addresses start off as counterfactual addresses. With smart contract wallets, counterfactual addresses are still possible, largely thanks to <a href="https://eips.ethereum.org/EIPS/eip-1014">CREATE2</a>, which allows you to have an ETH address that can only be filled by a smart contract that has code matching a particular hash.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/create2.png)
+![](../images/deeperdive/create2.png)
 
 _[EIP-1014 (CREATE2)](https://eips.ethereum.org/EIPS/eip-1014) address calculation algorithm._
 
@@ -48,7 +44,7 @@ _[EIP-1014 (CREATE2)](https://eips.ethereum.org/EIPS/eip-1014) address calculati
 <p>If a user has many addresses on many L2s, including addresses that (because they are counterfactual) the L2 that they are on does not know about, then it seems like there is only one way to allow users to change their keys: <strong>asset / keystore separation architecture</strong>. Each user has <strong>(i) a "keystore contract"</strong> (on L1 or on one particular L2), which stores the verification key for <em>all</em> wallets along with the rules for changing the key, and <strong>(ii) "wallet contracts"</strong> on L1 and many L2s, which read cross-chain to get the verification key.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/keystore.png)
+![](../images/deeperdive/keystore.png)
 
 </center>
 <p><br></p>
@@ -60,7 +56,7 @@ _[EIP-1014 (CREATE2)](https://eips.ethereum.org/EIPS/eip-1014) address calculati
 </ul>
 </li>
 <li><strong>Heavy version (check for every tx)</strong>: a cross-chain proof showing the key currently in the keystore is necessary for each transaction.<ul>
-<li><strong>Upside</strong>: less <a href="complexity.html">systemic complexity</a>, and keystore updating is cheap.</li>
+<li><strong>Upside</strong>: less <a href="../index.html#complexity">systemic complexity</a>, and keystore updating is cheap.</li>
 <li><strong>Downside</strong>: expensive per-tx, so requires much more engineering to make cross-chain proofs acceptably cheap. Also not easily compatible with ERC-4337, which currently does not support cross-contract reading of mutable objects during validation.</li>
 </ul>
 </li>
@@ -69,7 +65,7 @@ _[EIP-1014 (CREATE2)](https://eips.ethereum.org/EIPS/eip-1014) address calculati
 <p>To show the full complexity, we'll explore the most difficult case: where the keystore is on one L2, and the wallet is on a different L2. If either the keystore or the wallet is on L1, then only half of this design is needed.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/crosschainproof.png)
+![](../images/deeperdive/crosschainproof.png)
 
 </center>
 <p><br></p>
@@ -92,13 +88,13 @@ _[EIP-1014 (CREATE2)](https://eips.ethereum.org/EIPS/eip-1014) address calculati
 <li><strong>Merkle proofs</strong></li>
 <li><strong>General-purpose ZK-SNARKs</strong></li>
 <li><strong>Special-purpose proofs (eg. with KZG)</strong></li>
-<li><strong><a href="verkle.html">Verkle proofs</a></strong>, which are somewhere between KZG and ZK-SNARKs on both infrastructure workload and cost.</li>
+<li><strong><a href="../index.html#verkle">Verkle proofs</a></strong>, which are somewhere between KZG and ZK-SNARKs on both infrastructure workload and cost.</li>
 <li><strong>No proofs and rely on direct state reading</strong></li>
 </ul>
 <p>In terms of infrastructure work required and cost for users, I rank them roughly as follows:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/proofs.png)
+![](../images/deeperdive/proofs.png)
 
 </center>
 <p><br></p>
@@ -116,14 +112,14 @@ _[EIP-1014 (CREATE2)](https://eips.ethereum.org/EIPS/eip-1014) address calculati
 <p>We can calculate what this means by looking at comparisons between L1 gas costs and L2 gas costs:</p>
 <center><br><a href="https://l2fees.info/">
 
-![](https://vitalik.eth.limo/images/deeperdive/l2fees.png)
+![](../images/deeperdive/l2fees.png)
 
 </a></center>
 <p><br></p>
 <p>L1 is currently about 15-25x more expensive than L2 for simple sends, and 20-50x more expensive for token swaps. Simple sends are relatively data-heavy, but swaps are much more computationally heavy. Hence, swaps are a better benchmark to approximate cost of L1 computation vs L2 computation. Taking all this into account, if we assume a 30x cost ratio between L1 computation cost and L2 computation cost, this seems to imply that putting a Merkle proof on L2 will cost the equivalent of perhaps fifty regular transactions.</p>
 <p>Of course, using a binary Merkle tree can cut costs by ~4x, but even still, the cost is in most cases going to be too high - and if we're willing to make the sacrifice of no longer being compatible with Ethereum's current hexary state tree, we might as well seek even better options.</p>
 <h3>How would ZK-SNARK proofs work?</h3>
-<p>Conceptually, the use of ZK-SNARKs is also easy to understand: you simply replace the Merkle proofs in <a href="https://vitalik.eth.limo/images/deeperdive/crosschainproof.png">the diagram above</a> with a ZK-SNARK proving that those Merkle proofs exist. A ZK-SNARK costs ~400,000 gas of computation, and about 400 bytes (compare: 21,000 gas and 100 bytes for a basic transaction, in the future <a href="https://twitter.com/VitalikButerin/status/1554983955182809088">reducible to ~25 bytes with compression</a>). Hence, from a <em>computational</em> perspective, a ZK-SNARK costs 19x the cost of a basic transaction today, and from a <em>data</em> perspective, a ZK-SNARK costs 4x as much as a basic transaction today, and 16x what a basic transaction may cost in the future.</p>
+<p>Conceptually, the use of ZK-SNARKs is also easy to understand: you simply replace the Merkle proofs in <a href="../images/deeperdive/crosschainproof.png">the diagram above</a> with a ZK-SNARK proving that those Merkle proofs exist. A ZK-SNARK costs ~400,000 gas of computation, and about 400 bytes (compare: 21,000 gas and 100 bytes for a basic transaction, in the future <a href="https://twitter.com/VitalikButerin/status/1554983955182809088">reducible to ~25 bytes with compression</a>). Hence, from a <em>computational</em> perspective, a ZK-SNARK costs 19x the cost of a basic transaction today, and from a <em>data</em> perspective, a ZK-SNARK costs 4x as much as a basic transaction today, and 16x what a basic transaction may cost in the future.</p>
 <p>These numbers are a massive improvement over Merkle proofs, but they are still quite expensive. There are two ways to improve on this: (i) special-purpose KZG proofs, or (ii) aggregation, similar to <a href="https://www.stackup.sh/blog/understanding-aggregators-in-erc-4337">ERC-4337 aggregation</a> but using more fancy math. We can look into both.</p>
 <h3>How would special-purpose KZG proofs work?</h3>
 <p><em>Warning, this section is much more mathy than other sections. This is because we're going beyond general-purpose tools and building something special-purpose to be cheaper, so we have to go "under the hood" a lot more. If you don't like deep math, skip straight to <a href="#end_of_kzg">the next section</a>.</em></p>
@@ -150,7 +146,7 @@ _[EIP-1014 (CREATE2)](https://eips.ethereum.org/EIPS/eip-1014) address calculati
 <p>Keeping the commitments updated could either become part of core L2 logic, or it could be implemented without L2 core-protocol changes through deposit and withdraw bridges.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/mirroring.png)
+![](../images/deeperdive/mirroring.png)
 
 </center>
 <p><br></p>
@@ -168,7 +164,7 @@ _[EIP-1014 (CREATE2)](https://eips.ethereum.org/EIPS/eip-1014) address calculati
 <p>Verkle trees essentially involve stacking KZG commitments (or <a href="../../../../general/2021/11/05/halo.html#background-how-do-inner-product-arguments-work">IPA commitments</a>, which can be more efficient and use simpler cryptography) on top of each other: to store 2⁴⁸ values, you can make a KZG commitment to a list of 2²⁴ values, each of which itself is a KZG commitment to 2²⁴ values. Verkle trees are being <a href="https://notes.ethereum.org/@vbuterin/verkle_tree_eip">strongly considered for the Ethereum state tree</a>, because Verkle trees can be used to hold key-value maps and not just lists (basically, you can make a size-2²⁵⁶ tree but start it empty, only filling in specific parts of the tree once you actually need to fill them).</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/verkle.png)
+![](../images/deeperdive/verkle.png)
 
 _What a Verkle tree looks like. In practice, you might give each node a width of 256 == 2⁸ for IPA-based trees, or 2²⁴ for KZG-based trees._
 
@@ -190,7 +186,7 @@ _What a Verkle tree looks like. In practice, you might give each node a width of
 <p>From an implementation perspective, it's probably best to have bundlers aggregate cross-chain proofs through the <a href="https://eips.ethereum.org/EIPS/eip-4337">ERC-4337</a> account abstraction standard. ERC-4337 already has a mechanism for builders to aggregate parts of UserOperations in custom ways. There is even an <a href="https://hackmd.io/@voltrevo/BJ0QBy3zi">implementation of this for BLS signature aggregation</a>, which could reduce gas costs on L2 by 1.5x to 3x depending on <a href="https://twitter.com/VitalikButerin/status/1554983955182809088">what other forms of compression are included</a>.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/blswallet.png)
+![](../images/deeperdive/blswallet.png)
 
 _Diagram from a [BLS wallet implementation post](https://hackmd.io/@voltrevo/BJ0QBy3zi) showing the workflow of BLS aggregate signatures within an earlier version of ERC-4337. The workflow of aggregating cross-chain proofs will likely look very similar._
 
@@ -219,7 +215,7 @@ _Diagram from a [BLS wallet implementation post](https://hackmd.io/@voltrevo/BJ0
 <p>Ultimately, the best latency-minimizing solution is for L2s to implement direct reading of L1 state roots in an optimal way, where each L2 block (or the state root computation log) contains a pointer to the most recent L1 block, so if L1 reverts, L2 can revert as well. Keystore contracts should be placed either on mainnet, or on L2s that are ZK-rollups and so can quickly commit to L1.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/l2forkchoice.png)
+![](../images/deeperdive/l2forkchoice.png)
 
 _Blocks of the L2 chain can have dependencies on not just previous L2 blocks, but also on an L1 block. If L1 reverts past such a link, the L2 reverts too. It's worth noting that this is also how an earlier (pre-Dank) version of sharding was envisioned to work; see [here](https://github.com/ethereum/research/blob/ddac715ee18a23d6198e3ae7bdeec61fd3bbfdb3/sharding_fork_choice_poc/beacon_chain_node.py) for code._
 
@@ -244,7 +240,7 @@ _Blocks of the L2 chain can have dependencies on not just previous L2 blocks, bu
 <p>With SNARKs, the solutions are conceptually easy: proofs are information-hiding by default, and the aggregator needs to produce a recursive SNARK to prove the SNARKs.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/deeperdive/zk_keystore.png)
+![](../images/deeperdive/zk_keystore.png)
 
 </center>
 <p><br></p>

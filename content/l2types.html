@@ -1,8 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Different types of layer 2s — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>Different types of layer 2s</h1><div class="meta"><span>2023-10-31</span><span>2446 words</span><a href="https://vitalik.eth.limo/general/2023/10/31/l2types.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/l2types.md">GitHub source</a></div><div><span class="tag theme">Voting and democracy</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Privacy, identity, ZK</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Blockchains</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p><em>Special thanks to Karl Floersch for feedback and review</em></p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Different types of layer 2s — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>Different types of layer 2s</h1><div class="meta-row"><span class="pill">2023-10-31</span><span class="pill">2446 words</span><a class="pill" href="https://vitalik.eth.limo/general/2023/10/31/l2types.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/l2types.md">GitHub source</a></div><div><span class="tag theme">Voting and democracy</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Privacy, identity, ZK</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Blockchains</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p><em>Special thanks to Karl Floersch for feedback and review</em></p>
 <p>The Ethereum layer 2 ecosystem has been expanding rapidly over the last year. The EVM rollup ecosystem, traditionally featuring <a href="https://arbitrum.io/">Arbitrum</a>, <a href="https://optimism.io">Optimism</a> and <a href="https://scroll.io/">Scroll</a>, and more recently <a href="https://www.kakarot.org/">Kakarot</a> and <a href="https://taiko.xyz/">Taiko</a>, has been progressing quickly, making great strides on improving their security; the <a href="https://l2beat.com/scaling/summary">L2beat page</a> does a good job of summarizing the state of each project. Additionally, we have seen teams building sidechains also starting to build rollups (<a href="https://polygon.technology/">Polygon</a>), layer 1 projects seeking to move toward being validiums (<a href="https://celo.org/">Celo</a>), and totally new efforts (<a href="https://linea.build/">Linea</a>, <a href="https://www.risczero.com/news/zeth-release">Zeth</a>...). Finally, there is the not-just-EVM ecosystem: "almost-EVMs" like <a href="https://zksync.io/">Zksync</a>, extensions like <a href="https://docs.arbitrum.io/stylus/stylus-gentle-introduction">Arbitrum Stylus</a>, and broader efforts like the <a href="https://www.starknet.io/en">Starknet ecosystem</a>, <a href="https://www.fuel.network/">Fuel</a> and others.</p>
 <p>One of the inevitable consequences of this is that we are seeing a trend of layer 2 projects becoming more heterogeneous. I expect this trend to continue, for a few key reasons:</p>
 <ul>
@@ -61,7 +57,7 @@
 <p>Approximately, this tradeoff looks something like this:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/l2types/rollup_vs_validium.png)
+![](../images/l2types/rollup_vs_validium.png)
 
 </center>
 <p><br></p>
@@ -71,7 +67,7 @@
 <p>Another less-thought-about, but still highly important, form of connection has to do with <strong>a system's ability to <em>read</em> the Ethereum blockchain</strong>. Particularly, this includes <strong>being able to revert if Ethereum reverts</strong>. To see why this is valuable, consider the following situation:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/l2types/ethreverts.png)
+![](../images/l2types/ethreverts.png)
 
 </center>
 <p><br></p>
@@ -86,14 +82,14 @@
 <p>The ability of a chain to trustlessly read Ethereum is valuable for two reasons:</p>
 <ol>
 <li>It reduces security issues involved in bridging tokens issued on Ethereum (or other L2s) to that chain</li>
-<li>It allows account abstraction wallets that use the <a href="deeperdive.html">shared keystore architecture</a> to hold assets on that chain securely.</li>
+<li>It allows account abstraction wallets that use the <a href="../index.html#deeperdive">shared keystore architecture</a> to hold assets on that chain securely.</li>
 </ol>
 <p>(1) is important, though arguably this need is already widely recognized. (2) is important too, because it means that you can have a wallet that allows easy key changes and that holds assets across a large number of different chains.</p>
 <h2>Does having a bridge make you a validium?</h2>
 <p>Suppose that the top chain starts out as a separate chain, and then someone puts onto Ethereum a bridge contract. A bridge contract is simply a contract that accepts block headers of the top chain, verifies that any header submitted to it comes with a valid certificate showing that it was accepted by the top chain's consensus, and adds that header to a list. Applications can build on top of this to implement functionality such as depositing and withdrawing tokens. Once such a bridge is in place, does that provide <em>any</em> of the asset security guarantees we mentioned earlier?</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/l2types/bridge.png)
+![](../images/l2types/bridge.png)
 
 </center>
 <p><br></p>
@@ -112,7 +108,7 @@
 </ol>
 <center><br>
 
-![](https://vitalik.eth.limo/images/l2types/bridge2.png)
+![](../images/l2types/bridge2.png)
 
 _The purple links can be either hash links or a bridge contract that verifies Ethereum's consensus._
 
@@ -136,7 +132,7 @@ _The purple links can be either hash links or a bridge contract that verifies Et
 <p>These are both important, and have different considerations. There is a spectrum in both cases:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/l2types/4d.png)
+![](../images/l2types/4d.png)
 
 </center>
 <p><br></p>

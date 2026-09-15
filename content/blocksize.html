@@ -1,16 +1,12 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Some reflections on the Bitcoin block size war — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>Some reflections on the Bitcoin block size war</h1><div class="meta"><span>2024-05-31</span><span>4035 words</span><a href="https://vitalik.eth.limo/general/2024/05/31/blocksize.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/blocksize.md">GitHub source</a></div><div><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Philosophy</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p>Recently I finished reading (or rather, audio-listening) the two main history books covering the great Bitcoin block size war of the 2010s, from opposite ends of the spectrum:</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Some reflections on the Bitcoin block size war — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>Some reflections on the Bitcoin block size war</h1><div class="meta-row"><span class="pill">2024-05-31</span><span class="pill">4035 words</span><a class="pill" href="https://vitalik.eth.limo/general/2024/05/31/blocksize.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/blocksize.md">GitHub source</a></div><div><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Philosophy</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p>Recently I finished reading (or rather, audio-listening) the two main history books covering the great Bitcoin block size war of the 2010s, from opposite ends of the spectrum:</p>
 <ul>
 <li>Jonathan Bier's <a href="https://www.amazon.com/Blocksize-War-controls-Bitcoins-protocol/dp/B08YQMC2WM">"<strong>The Blocksize War</strong>"</a>, telling the story from a pro-small-block perspective</li>
 <li>Roger Ver and Steve Patterson's <a href="https://www.hijackingbitcoin.com/">"<strong>Hijacking Bitcoin</strong>"</a>, telling the story from a pro-big-block perspective</li>
 </ul>
 <center><br>
 
-[![](https://vitalik.eth.limo/images/blocksize/book1.png)](https://www.amazon.com/Blocksize-War-controls-Bitcoins-protocol/dp/B08YQMC2WM)
-[![](https://vitalik.eth.limo/images/blocksize/book2.png)](https://www.hijackingbitcoin.com/)
+[![](../images/blocksize/book1.png)](https://www.amazon.com/Blocksize-War-controls-Bitcoins-protocol/dp/B08YQMC2WM)
+[![](../images/blocksize/book2.png)](https://www.hijackingbitcoin.com/)
 
 </center>
 <p><br></p>
@@ -19,7 +15,7 @@
 <p>The original debate in the block size war centered around a simple question: should Bitcoin have a hard fork to raise the block size limit from its then-current value of 1 MB to a higher value, allowing Bitcoin to process more transactions and hence have lower fees, but at the cost of making the chain more difficult and costly to run a node for and verify?</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/petertoddvideo.png)
+![](../images/blocksize/petertoddvideo.png)
 
 <small><i>"[If the block size were much bigger], you would need a big data center to run a node, and you won't be able to do it anonymously" - a key argument made in [a video sponsored by Peter Todd](https://x.com/MKjrstad/status/1681705062383464448) advocating for keeping the block size small.</i></small>
 
@@ -30,7 +26,7 @@
 <p>In Bier's telling, the big blockers offended the small blockers most strongly precisely because they often attempted to get a relatively small number of big players together to legitimize and push through their preferred changes - anathema to the small blockers' view on how governance should be done.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/NYA-main-points.png)
+![](../images/blocksize/NYA-main-points.png)
 
 <small><i>The New York Agreement, signed by [major Bitcoin exchanges, payment processors, miners and other companies](https://dcgco.medium.com/bitcoin-scaling-agreement-at-consensus-2017-133521fe9a77) in 2017. A key example of what small blockers consider to be an attempt to shift Bitcoin from rule by users to rule by corporate cabal.</i></small>
 
@@ -40,7 +36,7 @@
 <p>Big blockers generally focus on a key underlying object-level question: <em>what is Bitcoin supposed to be?</em> Is it supposed to be a store of value - digital gold, or a means of payment - digital cash? To them, it was clear to everyone from the start that the original vision, and the vision that big blockers all signed up for, was digital cash. It even says so in <a href="https://bitcoin.org/bitcoin.pdf">the whitepaper</a>!</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/digitalcash.png)
+![](../images/blocksize/digitalcash.png)
 
 </center>
 <p><br></p>
@@ -51,7 +47,7 @@
 </ol>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/satoshiquote.png)
+![](../images/blocksize/satoshiquote.png)
 
 </center>
 <p><br></p>
@@ -64,7 +60,7 @@
 <h2>In my telling, how did I see the block size war? And how do I see it today?</h2>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/room77.png)
+![](../images/blocksize/room77.png)
 
 <small><i>Room 77, a former restaurant in Berlin that accepted Bitcoin for payments. It was the centerpiece of the [Bitcoin Kiez](https://bitcoinhood.wordpress.com/), a region in Berlin where a large number of restaurants accepted Bitcoin. Unfortunately, the dream of Bitcoin for payments faded away over the latter part of the decade, and I consider rising fees to be a key culprit.</i></small>
 
@@ -79,7 +75,7 @@
 </ul>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/redditcensor.png)
+![](../images/blocksize/redditcensor.png)
 
 <small><i>Even relatively mild pro-big-block posts would frequently get deleted. Custom CSS was used to [make these deleted posts invisible](https://www.reddit.com/r/bitcoin_uncensored/comments/3id1al/moderators_of_rbitcoin_changed_the_stylesheets/).</i></small>
 
@@ -94,7 +90,7 @@
 <p>I later repeated this perspective in a <a href="https://x.com/VitalikButerin/status/1603768363318235137">tweet in 2022</a>. In essence, the philosophy is: <strong>we should balance between increasing the cost of writing to the chain (ie. transaction fees) and the cost of reading the chain (ie. software requirements for a node)</strong>. Ideally, if demand for using a blockchain increases by 100x, we should split the pain halfway, and let the block size increase by 10x and the fees increase by 10x (demand elasticity for transaction fees <a href="https://ethresear.ch/t/estimating-cryptocurrency-transaction-demand-elasticity-from-natural-experiments/2330">is close enough to 1</a> that this kind-of works in practice).</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/gaslimit.png)
+![](../images/blocksize/gaslimit.png)
 
 <small><i>Ethereum actually did end up taking a medium-block approach: the chain's capacity has increased by roughly 5.3x since it launched in 2015 (perhaps 7x if you count calldata repricings and blobs), and at the same time fees increased from almost nothing to a significant-but-not-too-high level.</i></small>
 
@@ -105,7 +101,7 @@
 <p><strong>A major line of criticism of big blockers in Bier's book was their repeated displays of incompetence</strong>. Bitcoin Classic was not well-written code, Bitcoin Unlimited was needlessly overly complicated, for a long time they did not include <a href="https://bitcoin.stackexchange.com/questions/60360/segwit2x-btc1-block-header-changes-wipeout-protection-for-spv-nodes">wipeout protection</a> and did not seem to understand that this choice greatly hurts their chance of success (!!), and they had <a href="https://www.nasdaq.com/articles/this-security-researcher-found-the-bug-that-knocked-out-bitcoin-unlimited-2017-03-15">serious security vulnerabilities</a>. They loudly shouted about the need for multiple implementations of the Bitcoin software - a principle that I agree with and a principle that <a href="https://ethereum.org/en/developers/docs/nodes-and-clients/client-diversity/">Ethereum has adopted</a> - but their "alternative clients" were really just forks of Bitcoin Core with a few lines changed to implement a block size increase. In Bier's telling, their repeated faux pas on both code and economics ended up turning away more and more supporters over time. Major big blockers falling for Craig Wright <a href="https://github.com/vbuterin/cult-of-craig">fraudulently claiming to be Satoshi</a> further discredited them.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/csw.png)
+![](../images/blocksize/csw.png)
 
 <small><i>Craig Wright, a scammer pretending to be Satoshi. He frequently used legal threats to take down criticism, which is why [my fork](https://github.com/vbuterin/cult-of-craig) is the largest still-online copy of the Cult of Craig repository which documented proof that he's fake. Unfortunately, many big blockers fell for Craig's antics, because Craig toed the big-block party line, and said things that the big blockers wanted to hear.</i></small>
 
@@ -134,7 +130,7 @@
 <p>When an ecosystem stops embracing new technology, it inevitably stagnates, and becomes more contentious at the same time: a political debate between "I get 10 more apples" vs "you get 10 more apples" inherently causes much less strife than a debate between "I give up 10 apples" vs "you give up 10 apples". Losses are more painful than gains are pleasant, and people are more willing to "break the glass" of their shared political commons in order to avoid losses. This is a key reason why I'm quite uncomfortable with ideas like <a href="https://en.wikipedia.org/wiki/Degrowth">degrowth</a> and the notion that "we can't use technological solutions to solve social problems": there's a pretty strong reason to believe that fighting over who wins more rather than fighting over who loses less really is much better for social harmony.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/blocksize/prisoner.drawio.png)
+![](../images/blocksize/prisoner.drawio.png)
 
 <small><i>In economic theory, there is no difference between these two prisoner's dilemmas: the game on the right can be viewed as being the game on the left plus a separate (irrelevant) step where both players lose four points regardless of how they act. But in human psychology, the two games can be very different.</i></small>
 

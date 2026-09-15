@@ -1,9 +1,5 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Halo and more: exploring incremental verification and SNARKs without pairings — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>Halo and more: exploring incremental verification and SNARKs without pairings</h1><div class="meta"><span>2021-11-05</span><span>4154 words</span><a href="https://vitalik.eth.limo/general/2021/11/05/halo.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/halo.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag theme">Privacy, identity, ZK</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Cryptography</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p><em>Special thanks to Justin Drake and Sean Bowe for wonderfully pedantic and thoughtful feedback and review, and to Pratyush Mishra for discussion that contributed to the original IPA exposition.</em></p>
-<p>Readers who have been <a href="plonk.html">following</a> the <a href="zk_snarks.html">ZK-SNARK</a> space <a href="starks_part_1.html">closely</a> should by now be familiar with the high level of how ZK-SNARKs work. ZK-SNARKs are based on checking equations where the elements going into the equations are mathematical abstractions like <a href="snarks.html">polynomials</a> (or in <a href="qap.html">rank-1 constraint systems</a> matrices and vectors) that can hold a lot of data. There are three major families of cryptographic technologies that allow us to represent these abstractions succinctly: Merkle trees (for <a href="starks_part_1.html">FRI</a>), regular elliptic curves (for <a href="https://twitter.com/VitalikButerin/status/1371844878968176647">inner product arguments (IPAs)</a>), and elliptic curves with pairings and trusted setups (for <a href="https://dankradfeist.de/ethereum/2020/06/16/kate-polynomial-commitments.html">KZG commitments</a>). These three technologies lead to the three types of proofs: FRI leads to STARKs, KZG commitments lead to "regular" SNARKs, and IPA-based schemes lead to bulletproofs. These three technologies have very distinct tradeoffs:</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Halo and more: exploring incremental verification and SNARKs without pairings — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>Halo and more: exploring incremental verification and SNARKs without pairings</h1><div class="meta-row"><span class="pill">2021-11-05</span><span class="pill">4154 words</span><a class="pill" href="https://vitalik.eth.limo/general/2021/11/05/halo.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/halo.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag theme">Privacy, identity, ZK</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Cryptography</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p><em>Special thanks to Justin Drake and Sean Bowe for wonderfully pedantic and thoughtful feedback and review, and to Pratyush Mishra for discussion that contributed to the original IPA exposition.</em></p>
+<p>Readers who have been <a href="../index.html#plonk">following</a> the <a href="../index.html#zk_snarks">ZK-SNARK</a> space <a href="../index.html#starks_part_1">closely</a> should by now be familiar with the high level of how ZK-SNARKs work. ZK-SNARKs are based on checking equations where the elements going into the equations are mathematical abstractions like <a href="../index.html#snarks">polynomials</a> (or in <a href="../index.html#qap">rank-1 constraint systems</a> matrices and vectors) that can hold a lot of data. There are three major families of cryptographic technologies that allow us to represent these abstractions succinctly: Merkle trees (for <a href="../index.html#starks_part_1">FRI</a>), regular elliptic curves (for <a href="https://twitter.com/VitalikButerin/status/1371844878968176647">inner product arguments (IPAs)</a>), and elliptic curves with pairings and trusted setups (for <a href="https://dankradfeist.de/ethereum/2020/06/16/kate-polynomial-commitments.html">KZG commitments</a>). These three technologies lead to the three types of proofs: FRI leads to STARKs, KZG commitments lead to "regular" SNARKs, and IPA-based schemes lead to bulletproofs. These three technologies have very distinct tradeoffs:</p>
 <p><br></p>
 <table>
 <thead>
@@ -40,12 +36,12 @@
 <p><strong>More recently, however, there has been a slew of research into techniques for <em>merging</em> multiple IPA proofs into one.</strong> Much of the initial work on this was done as part of designing the <a href="https://eprint.iacr.org/2019/1021.pdf">Halo protocol</a> which is <a href="https://electriccoin.co/blog/halo-arc-for-zcash-proposed-for-release-later-this-year/">going into Zcash</a>. These merging techniques are cheap, and a merged proof takes no longer to verify than a single one of the proofs that it's merging. This opens a way forward for IPAs to be useful: instead of verifying a size-$n$ computation with a proof that takes still takes $O(n)$ time to verify, break that computation up into smaller size-$k$ steps, make $\frac{n}{k}$ proofs for each step, and merge them together so the verifier's work goes down to a little more than $O(k)$. These techniques also allow us to do <em>incremental verification</em>: if new things keep being introduced that need to be proven, you can just keep taking the existing proof, mixing it in with a proof of the new statement, and getting a proof of the new combined statement out. This is really useful for verifying the integrity of, say, an entire blockchain.</p>
 <p>So how do these techniques work, and what can they do? That's exactly what this post is about.</p>
 <h2>Background: how do inner product arguments work?</h2>
-<p>Inner product arguments are a proof scheme that can work over many mathematical structures, but usually we focus on IPAs over <a href="https://en.wikipedia.org/wiki/Elliptic_curve">elliptic curve points</a>. IPAs can be made over simple elliptic curves, theoretically even Bitcoin and Ethereum's <a href="https://en.bitcoin.it/wiki/Secp256k1">secp256k1</a> (though some special properties are preferred to make <a href="fft.html">FFTs</a> more efficient); no need for insanely complicated pairing schemes that despite having written an <a href="exploring_ecp.html">explainer article</a> and an <a href="https://github.com/ethereum/py_ecc/blob/master/py_ecc/bls12_381/bls12_381_pairing.py">implementation</a> I can still barely understand myself.</p>
+<p>Inner product arguments are a proof scheme that can work over many mathematical structures, but usually we focus on IPAs over <a href="https://en.wikipedia.org/wiki/Elliptic_curve">elliptic curve points</a>. IPAs can be made over simple elliptic curves, theoretically even Bitcoin and Ethereum's <a href="https://en.bitcoin.it/wiki/Secp256k1">secp256k1</a> (though some special properties are preferred to make <a href="../index.html#fft">FFTs</a> more efficient); no need for insanely complicated pairing schemes that despite having written an <a href="../index.html#exploring_ecp">explainer article</a> and an <a href="https://github.com/ethereum/py_ecc/blob/master/py_ecc/bls12_381/bls12_381_pairing.py">implementation</a> I can still barely understand myself.</p>
 <p>We'll start off with the commitment scheme, typically called <strong>Pedersen vector commitments</strong>. To be able to commit to degree $&lt; n$ polynomials, we first publicly choose a set of base points, $G_0 ... G_{n-1}$. These points can be generated through a pseudo-random procedure that can be re-executed by anyone (eg. the x coordinate of $G_i$ can be $hash(i, j)$ for the lowest integer $j \ge 0$ that produces a valid point); this is <em>not</em> a trusted setup as it does not rely on any specific party to introduce secret information.</p>
 <p>To commit to a polynomial $P(x) = \sum_i c_i x^i$, the prover computes $com(P) = \sum_i c_i G_i$. For example, $com(x^2 + 4)$ would equal $G_2 + 4 * G_0$ (remember, the $+$ and $*$ here are <a href="https://hackernoon.com/what-is-the-math-behind-elliptic-curve-cryptography-f61b25253da3">elliptic curve addition</a> and multiplication). Cryptographers will also often add an extra $r \cdot H$ hiding parameter for privacy, but for simplicity of exposition we'll ignore privacy for now; in general, it's not that hard to add privacy into all of these schemes.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/halo/commitments1.png){.padded}
+![](../images/halo/commitments1.png){.padded}
 
 <small>
 
@@ -58,7 +54,7 @@ _Though it's not really mathematically accurate to think of elliptic curve point
 <p>The prover <em>could</em>, of course, just provide ${c_0 ... c_{n-1}}$ directly and let the verifier check the commitment. But this takes too much space. So instead, we try to reduce the problem to a smaller problem of half the size. The prover provides two points, $L$ and $R$, representing the yellow and green areas in this diagram:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/halo/commitments2.png){.padded}
+![](../images/halo/commitments2.png){.padded}
 
 </center>
 <p><br></p>
@@ -66,7 +62,7 @@ _Though it's not really mathematically accurate to think of elliptic curve point
 <p>But there's a problem: if $C$ is incorrect in some way (eg. the prover added some extra point $H$ into it), then the prover could just subtract $H$ from $L$ or $R$ to compensate for it. We plug this hole by randomly scaling our points after the prover provides $L$ and $R$:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/halo/commitments3.png){.padded}
+![](../images/halo/commitments3.png){.padded}
 
 </center>
 <p><br></p>
@@ -86,7 +82,7 @@ _Though it's not really mathematically accurate to think of elliptic curve point
 <p>And then we repeat the process until we get down to one point:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/halo/commitments4.png){.padded}
+![](../images/halo/commitments4.png){.padded}
 
 </center>
 <p><br></p>
@@ -105,7 +101,7 @@ _Though it's not really mathematically accurate to think of elliptic curve point
 <p>We can make a Pedersen commitment using this extended base!</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/halo/commitments5.png){.padded}
+![](../images/halo/commitments5.png){.padded}
 
 </center>
 <p><br></p>
@@ -132,18 +128,18 @@ _Though it's not really mathematically accurate to think of elliptic curve point
 </ul>
 <center><br>
 
-![](https://vitalik.eth.limo/images/halo/proof_combining.png){.padded}
+![](../images/halo/proof_combining.png){.padded}
 
 </center>
 <p><br></p>
 <p>The verifier still needs to do a bunch of extra steps, but all of those steps take either $O(1)$ or $O(log(n))$ work: evaluate $e_1 = K_1(t)$ and $e_2 = K_2(t)$, calculate the $\alpha_i$ coefficients of both $K_i$ polynomials in the first place, do the elliptic curve addition $com(L) = D_1 + rD_2$. But this all takes vastly less than linear time, so all in all we still benefit: the verifier only needs to do the linear-time step of computing a $G^*_0$ point themselves once.</p>
 <p>This technique can easily be generalized to merge $m &gt; 2$ signatures.</p>
 <h2>From merging IPAs to merging IPA-based SNARKs: Halo</h2>
-<p>Now, we get into the core mechanic of the <a href="https://eprint.iacr.org/2019/1021.pdf">Halo protocol</a> being integrated in Zcash, which uses this proof combining technique to create a recursive proof system. The setup is simple: suppose you have a chain, where each block has an associated IPA-based SNARK (see <a href="snarks.html">here</a> for how generic SNARKs from polynomial commitments work) proving its correctness. You want to create a new block, building on top of the previous tip of the chain. The new block should have its own IPA-based SNARK proving the correctness of the block. In fact, this proof should cover both the correctness of the new block <em>and</em> the correctness of the previous block's proof of the correctness of the entire chain before it.</p>
+<p>Now, we get into the core mechanic of the <a href="https://eprint.iacr.org/2019/1021.pdf">Halo protocol</a> being integrated in Zcash, which uses this proof combining technique to create a recursive proof system. The setup is simple: suppose you have a chain, where each block has an associated IPA-based SNARK (see <a href="../index.html#snarks">here</a> for how generic SNARKs from polynomial commitments work) proving its correctness. You want to create a new block, building on top of the previous tip of the chain. The new block should have its own IPA-based SNARK proving the correctness of the block. In fact, this proof should cover both the correctness of the new block <em>and</em> the correctness of the previous block's proof of the correctness of the entire chain before it.</p>
 <p>IPA-based proofs by themselves cannot do this, because a proof of a statement takes longer to verify than checking the statement itself, so a proof of a proof will take even longer to verify than both proofs separately. But proof merging can do it!</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/halo/recursion.png){.padded}
+![](../images/halo/recursion.png){.padded}
 
 </center>
 <p><br></p>
@@ -153,7 +149,7 @@ _Though it's not really mathematically accurate to think of elliptic curve point
 <ul>
 <li>Let $P(z) = a$ be the previous statement that needs to be proven</li>
 <li>The prover generates $G^*_0$</li>
-<li>The prover proves the correctness of the new block plus the logarithmic work in the previous statements by generating a <a href="https://vitalik.eth.limo/general/2019/09/22/plonk.html#putting-it-all-together">PLONK proof</a>: $Q_L * A + Q_R * B + Q_O * C + Q_M * A * B + Q_C = Z * H$</li>
+<li>The prover proves the correctness of the new block plus the logarithmic work in the previous statements by generating a <a href="../index.html#plonk#putting-it-all-together">PLONK proof</a>: $Q_L * A + Q_R * B + Q_O * C + Q_M * A * B + Q_C = Z * H$</li>
 <li>The prover chooses a random point $t$, and proves the evaluation of a linear combination of ${G^*_0,\ Q_L,\ A,\ Q_R,\ B,\ Q_O,\ C,\ Q_M,\ Q_C,\ Z,\ H}$ at $t$. We can then check the above equation, replacing each polynomial with its now-verified evaluation at $t$, to verify the PLONK proof.</li>
 </ul>
 <h3>Incremental verification, more generally</h3>
@@ -199,10 +195,10 @@ _Though it's not really mathematically accurate to think of elliptic curve point
 <p><br></p>
 <h2>Not just polynomials! Merging R1CS proofs</h2>
 <p>A common alternative to building SNARKs out of polynomial games is building SNARKs out of matrix-vector multiplication games. Polynomials and vectors+matrices are both natural bases for SNARK protocols because they are mathematical abstractions that can store and compute over large amounts of data at the same time, and that admit commitment schemes that allow verifiers to check equations quickly.</p>
-<p>In R1CS (see a more detailed description <a href="qap.html">here</a>), an instance of the game consists of three matrices $A$, $B$, $C$, and a solution is a vector $Z$ such that $(A \cdot Z) \circ (B \cdot Z) = C \cdot Z$ (the problem is often in practice restricted further by requiring the prover to make part of $Z$ public and requiring the last entry of $Z$ to be 1).</p>
+<p>In R1CS (see a more detailed description <a href="../index.html#qap">here</a>), an instance of the game consists of three matrices $A$, $B$, $C$, and a solution is a vector $Z$ such that $(A \cdot Z) \circ (B \cdot Z) = C \cdot Z$ (the problem is often in practice restricted further by requiring the prover to make part of $Z$ public and requiring the last entry of $Z$ to be 1).</p>
 <center><br>
 
-<img src="https://vitalik.eth.limo/images/halo/r1cs.png" style="width:450px" class="padded" />
+<img src="../images/halo/r1cs.png" style="width:450px" class="padded" />
 
 <br>
 

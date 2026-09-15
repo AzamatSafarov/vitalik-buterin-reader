@@ -1,8 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Two thought experiments to evaluate automated stablecoins — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>Two thought experiments to evaluate automated stablecoins</h1><div class="meta"><span>2022-05-25</span><span>2515 words</span><a href="https://vitalik.eth.limo/general/2022/05/25/stable.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/stable.md">GitHub source</a></div><div><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Economics and public goods</span><span class="tag">General</span><span class="tag">Blockchains</span><span class="tag">Economics</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p><em>Special thanks to Dan Robinson, Hayden Adams and Dankrad Feist for feedback and review.</em></p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Two thought experiments to evaluate automated stablecoins — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>Two thought experiments to evaluate automated stablecoins</h1><div class="meta-row"><span class="pill">2022-05-25</span><span class="pill">2515 words</span><a class="pill" href="https://vitalik.eth.limo/general/2022/05/25/stable.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/stable.md">GitHub source</a></div><div><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Economics and public goods</span><span class="tag">General</span><span class="tag">Blockchains</span><span class="tag">Economics</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p><em>Special thanks to Dan Robinson, Hayden Adams and Dankrad Feist for feedback and review.</em></p>
 <p>The recent LUNA crash, which led to tens of billions of dollars of losses, has led to a <a href="https://rollcall.com/2022/05/03/critics-see-risk-in-algorithmic-stablecoins/">storm</a> of <a href="https://www.coindesk.com/learn/algorithmic-stablecoins-what-they-are-and-how-they-can-go-terribly-wrong/">criticism</a> of "<a href="https://twitter.com/CBarraford/status/1527309591226163200">algorithmic stablecoins</a>" as a <a href="https://blockworks.co/congress-mulling-stablecoin-regulation-after-terra-crash/">category</a>, with many <a href="(https://twitter.com/satofishi/status/1525394442118647810)">considering</a> them to be a "<a href="https://twitter.com/jp_koning/status/1524343011639013381">fundamentally flawed product</a>". The greater level of scrutiny on defi financial mechanisms, especially those that try very hard to optimize for "capital efficiency", is highly welcome. The greater acknowledgement that present performance is no guarantee of future returns (or even future lack-of-total-collapse) is even more welcome. Where the sentiment goes very wrong, however, is in painting all automated pure-crypto stablecoins with the same brush, and dismissing the entire category.</p>
 <p>While there are plenty of automated stablecoin designs that are fundamentally flawed and doomed to collapse eventually, and plenty more that can survive theoretically but are highly risky, there are also many stablecoins that are highly robust in theory, and have survived <a href="https://blog.makerdao.com/the-market-collapse-of-march-12-2020-how-it-impacted-makerdao/">extreme tests of crypto market conditions</a> in practice. Hence, what we need is not stablecoin boosterism <em>or</em> stablecoin doomerism, but rather a return to <em>principles-based thinking</em>. So what <em>are</em> some good principles for evaluating whether or not a particular automated stablecoin is a truly stable one? For me, the test that I start from is asking how the stablecoin responds to two thought experiments.</p>
 <p><em>Click <a href="#analysis">here</a> to skip straight to the thought experiments.</em></p>
@@ -21,7 +17,7 @@
 </ul>
 <center><br>
 
-![](https://vitalik.eth.limo/images/stable-files/stablecoin.drawio.png){.padded}
+![](../images/stable-files/stablecoin.drawio.png){.padded}
 
 </center>
 <p><br></p>
@@ -46,7 +42,7 @@
 </ul>
 <center><br>
 
-![](https://vitalik.eth.limo/images/stable-files/rai.drawio.png){.padded}
+![](../images/stable-files/rai.drawio.png){.padded}
 
 </center>
 <p><br></p>
@@ -64,11 +60,11 @@
 
 </tr><tr><td>
 
-![](https://vitalik.eth.limo/images/stable-files/lunachart.png)
+![](../images/stable-files/lunachart.png)
 
 </td><td>
 
-![](https://vitalik.eth.limo/images/stable-files/ustchart.png)
+![](../images/stable-files/ustchart.png)
 
 </td></tr></table><small>
 
@@ -78,11 +74,11 @@ _First, the volcoin price drops. Then, the stablecoin starts to shake. The syste
 <p><br></p>
 <p>In principle, if demand decreases extremely slowly, the volcoin's expected future fees and hence its market cap could still be large relative to the stablecoin, and so the system would continue to be stable at every step of its decline. <strong>But this kind of successful slowly-decreasing managed decline is very unlikely. What's more likely is a rapid drop in interest followed by a bang.</strong></p>
 <p><br><center></p>
-<p><img alt="" src="https://vitalik.eth.limo/images/stable-files/collapse.drawio.png" /></p>
+<p><img alt="" src="../images/stable-files/collapse.drawio.png" /></p>
 <p><small></p>
 <p><em>Safe wind-down: at every step, there's enough expected future revenue to justify enough volcoin market cap to keep the stablecoin safe at its current level.</em></p>
 <p></small></p>
-<p><img alt="" src="https://vitalik.eth.limo/images/stable-files/collapse2.drawio.png" /></p>
+<p><img alt="" src="../images/stable-files/collapse2.drawio.png" /></p>
 <p><small></p>
 <p><em>Unsafe wind-down: at some point, there's not enough expected future revenue to justify enough volcoin market cap to keep the stablecoin safe. Collapse is likely.</em></p>
 <p></small></center><br></p>
@@ -95,11 +91,11 @@ _First, the volcoin price drops. Then, the stablecoin starts to shake. The syste
 <p>As a thought experiment to evaluate sustainability, let's imagine a stablecoin with a particular index: a quantity of US dollars that grows by 20% per year. In math language, the index is $1.2^{(t - t_0)}$ USD, where $t$ is the current time in years and $t_0$ is the time when the system launched. An even more fun alternative is $1.04^{\frac{1}{2}*(t - t_0)^2}$ USD, so it starts off acting like a regular USD-denominated stablecoin, but the USD-denominated return rate keeps increasing by 4% every year.</p>
 <center><table class="transparent"><tr>
 
-![](https://vitalik.eth.limo/images/stable-files/ponzi1.png)
+![](../images/stable-files/ponzi1.png)
 
 </td><td>
 
-![](https://vitalik.eth.limo/images/stable-files/ponzi2.png)
+![](../images/stable-files/ponzi2.png)
 
 </td></tr></table></center>
 
@@ -119,4 +115,4 @@ _First, the volcoin price drops. Then, the stablecoin starts to shake. The syste
 <p>Option (1) has the user-experience flaw that the stablecoin no longer cleanly tracks "1 USD". Option (2) has the developer-experience flaw that developers aren't used to dealing with assets where receiving N coins does not unconditionally mean that you can later send N coins. But choosing one of the two seems unavoidable - unless you go the MakerDAO route of being a <em>hybrid</em> stablecoin that uses both pure cryptoassets and centralized assets like USDC as collateral.</p>
 <h2>What can we learn?</h2>
 <p>In general, the crypto space needs to move away from the attitude that it's okay to achieve safety by relying on endless growth. It's certainly not acceptable to maintain that attitude by saying that "the fiat world works in the same way", because the fiat world is not attempting to offer anyone returns that go up much faster than the regular economy, outside of isolated cases that certainly should be criticized with the same ferocity.</p>
-<p>Instead, while we certainly should hope for growth, we should evaluate how safe systems are by looking at their steady state, and even the pessimistic state of how they would fare under extreme conditions and ultimately whether or not they can safely wind down. If a system passes this test, that does not mean it's safe; it could still be fragile for other reasons (eg. insufficient collateral ratios), or have bugs or <a href="voting3.html">governance vulnerabilities</a>. But steady-state and extreme-case soundness should always be one of the first things that we check for.</p></article></div></body></html>
+<p>Instead, while we certainly should hope for growth, we should evaluate how safe systems are by looking at their steady state, and even the pessimistic state of how they would fare under extreme conditions and ultimately whether or not they can safely wind down. If a system passes this test, that does not mean it's safe; it could still be fragile for other reasons (eg. insufficient collateral ratios), or have bugs or <a href="../index.html#voting3">governance vulnerabilities</a>. But steady-state and extreme-case soundness should always be one of the first things that we check for.</p></article></div></body></html>

@@ -1,38 +1,34 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Travel time ~= 750 * distance ^ 0.6 — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>Travel time ~= 750 * distance ^ 0.6</h1><div class="meta"><span>2023-04-14</span><span>1200 words</span><a href="https://vitalik.eth.limo/general/2023/04/14/traveltime.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/traveltime.md">GitHub source</a></div><div><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Network states and crypto cities</span><span class="tag">General</span><span class="tag">Fun</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p>As another exercise in using ChatGPT 3.5 to do weird things and seeing what happens, I decided to explore an interesting question: how does the time it takes to travel from point A to point B scale with distance, <em>in the real world</em>? That is to say, if you sample randomly from positions where people are actually at (so, for example, <a href="https://www.worldbank.org/en/topic/urbandevelopment/overview">56% of points you choose</a> would be in cities), and you use public transportation, how does travel time scale with distance?</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Travel time ~= 750 * distance ^ 0.6 — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>Travel time ~= 750 * distance ^ 0.6</h1><div class="meta-row"><span class="pill">2023-04-14</span><span class="pill">1200 words</span><a class="pill" href="https://vitalik.eth.limo/general/2023/04/14/traveltime.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/traveltime.md">GitHub source</a></div><div><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Network states and crypto cities</span><span class="tag">General</span><span class="tag">Fun</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p>As another exercise in using ChatGPT 3.5 to do weird things and seeing what happens, I decided to explore an interesting question: how does the time it takes to travel from point A to point B scale with distance, <em>in the real world</em>? That is to say, if you sample randomly from positions where people are actually at (so, for example, <a href="https://www.worldbank.org/en/topic/urbandevelopment/overview">56% of points you choose</a> would be in cities), and you use public transportation, how does travel time scale with distance?</p>
 <p>Obviously, travel time would grow slower than linearly: the further you have to go, the more opportunity you have to resort to forms of transportation that are faster, but have some fixed overhead. Outside of a very few lucky cases, there is no practical way to take a bus to go faster if your destination is 170 meters away, but if your destination is 170 <em>kilometers</em> away, you suddenly get more options. And if it's 1700 kilometers away, you get airplanes.</p>
 <p>So I asked ChatGPT for the ingredients I would need:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/traveltime/robot1.png)
+![](../images/traveltime/robot1.png)
 
 </center>
 <p><br></p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/traveltime/robot2.png)
+![](../images/traveltime/robot2.png)
 
 </center>
 <p><br></p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/traveltime/robot3.png)
+![](../images/traveltime/robot3.png)
 
 </center>
 <p><br></p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/traveltime/robot4.png)
+![](../images/traveltime/robot4.png)
 
 </center>
 <p><br></p>
 <p>I went with the <a href="https://www.microsoft.com/en-us/research/publication/geolife-gps-trajectory-dataset-user-guide/">GeoLife dataset</a>. I did notice that while it claims to be about users around the world, primarily it seems to focus on people in Seattle and Beijing, though they do occasionally visit other cities. That said, I'm not a perfectionist and I was fine with it. I asked ChatGPT to write me a script to interpret the dataset and extract a randomly selected coordinate from each file:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/traveltime/robot5.png)
+![](../images/traveltime/robot5.png)
 
 </center>
 <p><br></p>
@@ -48,7 +44,7 @@
 <p>This gave me some really nice data (this is filtered for distances under 500km, as above 500km the best path almost certainly includes flying, and the Google Maps directions don't take into account flights):</p>
 <center>
 
-![](https://vitalik.eth.limo/images/traveltime/chart1.png)
+![](../images/traveltime/chart1.png)
 
 </center>
 <p><br></p>
@@ -70,12 +66,12 @@
 <p>Here's the resulting chart:</p>
 <center>
 
-![](https://vitalik.eth.limo/images/traveltime/chart2.png)
+![](../images/traveltime/chart2.png)
 
 <code>travel_time = 733.002223593754 * distance^0.591980777827876</code>
 
 </center>
 <p><br></p>
 <p>WAAAAAT?!?!! From this chart it seems like there is a surprisingly precise relationship governing travel time from point A to point B that somehow holds across such radically different transit media as walking, subways and buses, airplanes and (!!) interplanetary and hypothetical interstellar spacecraft. I swear that I am not cherrypicking; I did not throw out any data that was inconvenient, everything (including the space stuff) that I checked I put on the chart.</p>
-<p>ChatGPT 3.5 worked impressively well this time; it certainly stumbled and fell <em>much</em> less than my previous misadventure, where I tried to get it to help me <a href="gpt3.html">convert IPFS bafyhashes into hex</a>. In general, ChatGPT seems uniquely good at teaching me about libraries and APIs I've never heard of before but that other people use all the time; this reduces the barrier to entry between amateurs and professionals which seems like a very positive thing.</p>
+<p>ChatGPT 3.5 worked impressively well this time; it certainly stumbled and fell <em>much</em> less than my previous misadventure, where I tried to get it to help me <a href="../index.html#gpt3">convert IPFS bafyhashes into hex</a>. In general, ChatGPT seems uniquely good at teaching me about libraries and APIs I've never heard of before but that other people use all the time; this reduces the barrier to entry between amateurs and professionals which seems like a very positive thing.</p>
 <p>So there we go, there seems to be some kind of really weird fractal law of travel time. Of course, different transit technologies could change this relationship: if you replace public transit with cars and commercial flights with private jets, travel time becomes somewhat more linear. And once we upload our minds onto computer hardware, we'll be able to travel to Alpha Centauri on much crazier vehicles like <a href="https://breakthroughinitiatives.org/initiative/3">ultralight craft propelled by Earth-based lightsails</a>) that could let us go anywhere at a significant fraction of the speed of light. But for now, it does seem like there is a strangely consistent relationship that puts time much closer to the square root of distance.</p></article></div></body></html>

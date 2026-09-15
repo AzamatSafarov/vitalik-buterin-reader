@@ -1,17 +1,13 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Christmas Special — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>Christmas Special</h1><div class="meta"><span>2019-12-24</span><span>946 words</span><a href="https://vitalik.eth.limo/general/2019/12/24/christmas.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/christmas.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag">General</span><span class="tag">Fun</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p>Since it's Christmas time now, and we're theoretically supposed to be enjoying ourselves and spending time with our families instead of waging endless holy wars on Twitter, this blog post will offer some games that you can play with your friends that will help you have fun <em>and</em> at the same time understand some spooky mathematical concepts!</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Christmas Special — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>Christmas Special</h1><div class="meta-row"><span class="pill">2019-12-24</span><span class="pill">946 words</span><a class="pill" href="https://vitalik.eth.limo/general/2019/12/24/christmas.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/christmas.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag">General</span><span class="tag">Fun</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p>Since it's Christmas time now, and we're theoretically supposed to be enjoying ourselves and spending time with our families instead of waging endless holy wars on Twitter, this blog post will offer some games that you can play with your friends that will help you have fun <em>and</em> at the same time understand some spooky mathematical concepts!</p>
 <h3>1.58 dimensional chess</h3>
 <center><br>
-[![](https://vitalik.eth.limo/images/christmas-files/chess_tweet.jpg)](https://twitter.com/el33th4xor/status/1138777837320716288)
+[![](../images/christmas-files/chess_tweet.jpg)](https://twitter.com/el33th4xor/status/1138777837320716288)
 <br><br>
 </center>
 
 <p>This is a variant of chess where the board is set up like this:</p>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/chess.png)
+![](../images/christmas-files/chess.png)
 <br><br>
 </center>
 
@@ -25,13 +21,13 @@
 <p>The game is substantially simpler and more "tractable" than full-on chess, and it's an interesting exercise in showing how in <a href="https://en.wikipedia.org/wiki/Flatland">lower-dimensional spaces</a> defense becomes much easier than offense. Note that the relative value of different pieces may change here, and new kinds of endings become possible (eg. you can checkmate with just a bishop).</p>
 <h3>3 dimensional tic tac toe</h3>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/tic4.png){.padded}
+![](../images/christmas-files/tic4.png){.padded}
 <br><br>
 </center>
 
 <p>The goal here is to get 4 in a straight line, where the line can go in any direction, along an axis or diagonal, including between planes. For example in this configuration X wins:</p>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/tic4_2.png){.padded}
+![](../images/christmas-files/tic4_2.png){.padded}
 <br><br>
 </center>
 
@@ -39,38 +35,38 @@
 <h3>Modular tic-tac-toe</h3>
 <p>Here, we go back down to having two dimensions, except we allow lines to wrap around:</p>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/tic4_3.png)
+![](../images/christmas-files/tic4_3.png)
 <br><small><i>X wins</i></small></center>
 <p><br><br></p>
 <p>Note that we allow diagonal lines with any slope, as long as they pass through all four points. Particularly, this means that lines with slope +/- 2 and +/- 1/2 are admissible:</p>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/tic4_4.png)
+![](../images/christmas-files/tic4_4.png)
 <br><br>
 </center>
 
 <p>Mathematically, the board can be interpreted as a 2-dimensional vector space over <a href="https://en.wikipedia.org/wiki/Modular_arithmetic">integers modulo 4</a>, and the goal being to fill in a line that passes through four points over this space. Note that there exists at least one line passing through any two points.</p>
 <h3>Tic tac toe over the 4-element binary field</h3>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/tic4_5.png){.padded}
+![](../images/christmas-files/tic4_5.png){.padded}
 <br><br>
 </center>
 
 <p>Here, we have the same concept as above, except we use an even spookier mathematical structure, the <a href="https://en.wikipedia.org/wiki/Finite_field#Field_with_four_elements">4-element field</a> of polynomials over $Z_2$ modulo $x^2 + x + 1$. This structure has pretty much no reasonable geometric interpretation, so I'll just give you the addition and multiplication tables:</p>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/tic4_6.png){.padded}
+![](../images/christmas-files/tic4_6.png){.padded}
 <br><br>
 </center>
 
 <p>OK fine, here are all possible lines, excluding the horizontal and the vertical lines (which are also admissible) for brevity:</p>
 <center><br>
-<img src="https://vitalik.eth.limo/images/christmas-files/tic4_7.png" style="width: 450px" class="padded" />
+<img src="../images/christmas-files/tic4_7.png" style="width: 450px" class="padded" />
 <br><br>
 </center>
 
 <p>The lack of geometric interpretation does make the game harder to play; you pretty much have to memorize the twenty winning combinations, though note that they are <em>basically</em> rotations and reflections of the same four basic shapes (axial line, diagonal line, diagonal line starting in the middle, that weird thing that doesn't look like a line).</p>
 <h3>Now play 1.77 dimensional connect four. I dare you.</h3>
 <center><br>
-<img src="https://vitalik.eth.limo/images/christmas-files/tic4_8.png" style="width: 450px" />
+<img src="../images/christmas-files/tic4_8.png" style="width: 450px" />
 <br><br>
 </center>
 
@@ -78,17 +74,17 @@
 <p>Everyone is dealt five (you can use whatever variant poker rules you want here in terms of how these cards are dealt and whether or not players have the right to swap cards out). The cards are interpreted as: jack = 11, queen = 12, king = 0, ace = 1. A hand is stronger than another hand, if it contains a longer sequence, with any constant difference between consecutive cards (allowing wraparound), than the other hand.</p>
 <p>Mathametically, this can be represented as, a hand is stronger if the player can come up with a line $L(x) = mx+b$ such that they have cards for the numbers $L(0)$, $L(1)$ ... $L(k)$ for the highest $k$.</p>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/cards1.png)
+![](../images/christmas-files/cards1.png)
 <br><small><i>Example of a full five-card winning hand. y = 4x + 5.</i></small></center>
 <p><br><br></p>
 <p>To break ties between equal maximum-length sequences, count the number of distinct length-three sequences they have; the hand with more distinct length-three sequences wins.</p>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/cards2.png)
+![](../images/christmas-files/cards2.png)
 <br><small><i>This hand has four length-three sequences: K 2 4, K 4 8, 2 3 4, 3 8 K. This is rare.</i></small></center>
 <p><br><br></p>
 <p>Only consider lines of length three or higher. If a hand has three or more of the same denomination, that counts as a sequence, but if a hand has two of the same denomination, any sequences passing through that denomination only count as one sequence.</p>
 <center><br>
-![](https://vitalik.eth.limo/images/christmas-files/cards3.png)
+![](../images/christmas-files/cards3.png)
 <br><small><i>This hand has no length-three sequences.</i></small></center>
 <p><br><br></p>
 <p>If two hands are completely tied, the hand with the higher highest card (using J = 11, Q = 12, K = 0, A = 1 as above) wins.</p>

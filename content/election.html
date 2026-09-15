@@ -1,8 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prediction Markets: Tales from the Election — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>Prediction Markets: Tales from the Election</h1><div class="meta"><span>2021-02-18</span><span>5209 words</span><a href="https://vitalik.eth.limo/general/2021/02/18/election.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/election.md">GitHub source</a></div><div><span class="tag theme">Voting and democracy</span><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag theme">Economics and public goods</span><span class="tag theme">Philosophy and politics</span><span class="tag">General</span><span class="tag">Economics</span><span class="tag">Philosophy</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p><em>Special thanks to Jeff Coleman, Karl Floersch and Robin Hanson for critical feedback and review.</em></p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prediction Markets: Tales from the Election — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>Prediction Markets: Tales from the Election</h1><div class="meta-row"><span class="pill">2021-02-18</span><span class="pill">5209 words</span><a class="pill" href="https://vitalik.eth.limo/general/2021/02/18/election.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/election.md">GitHub source</a></div><div><span class="tag theme">Voting and democracy</span><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag theme">Economics and public goods</span><span class="tag theme">Philosophy and politics</span><span class="tag">General</span><span class="tag">Economics</span><span class="tag">Philosophy</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p><em>Special thanks to Jeff Coleman, Karl Floersch and Robin Hanson for critical feedback and review.</em></p>
 <p><em>Trigger warning: I express some political opinions.</em></p>
 <p><br></p>
 <p>Prediction markets are a subject that has interested me for many years. The idea of allowing anyone in the public to make bets about future events, and using the odds at which these bets are made as a <a href="https://nakamoto.com/credible-neutrality/">credibly</a> <a href="https://www.overcomingbias.com/2013/01/hail-scott.html">neutral</a> source of predicted probabilities of these events, is a fascinating application of mechanism design. Closely related ideas, like <a href="https://blog.ethereum.org/2014/08/21/introduction-futarchy/">futarchy</a>, have always interested me as innovative tools that could improve governance and decision-making. And as <a href="https://augur2.eth.link/">Augur</a> and <a href="https://omen.eth.link/">Omen</a>, and more recently <a href="https://polymarket.com/">PolyMarket</a>, have shown, prediction markets are a fascinating application of blockchains (in all three cases, Ethereum) as well.</p>
@@ -11,7 +7,7 @@
 <h2>Before the Election</h2>
 <p><br></p>
 <center>
-<img src="https://vitalik.eth.limo/images/election-files/neoliberal.png" class="padded" />
+<img src="../images/election-files/neoliberal.png" class="padded" />
 <br>
 </center>
 <p><br></p>
@@ -29,8 +25,8 @@
 <table class="transparent centered"><tr>
 <td>PredictIt</td><td>Augur</td>
 </tr><tr>
-<td><img src="https://vitalik.eth.limo/images/election-files/predictit_prices.png" /></td>
-<td><img src="https://vitalik.eth.limo/images/election-files/augur_prices.png" /></td>
+<td><img src="../images/election-files/predictit_prices.png" /></td>
+<td><img src="../images/election-files/augur_prices.png" /></td>
 </tr></table>
 </center>
 <p><br></p>
@@ -39,7 +35,7 @@
 <p>Then the election happened. After an initial scare where Trump at first won more seats than we expected, Biden turned out to be the eventual winner. Whether or not the election itself validated or refuted the efficiency of prediction markets is a topic that, as far as I can tell, is quite open to interpretation. On the one hand, by a standard <a href="https://arbital.com/p/bayes_rule_guide/">Bayes rule</a> application, I should decrease my confidence of prediction markets, at least relative to Nate Silver. Prediction markets gave a 60% chance of Biden winning, Nate Silver gave a <a href="https://projects.fivethirtyeight.com/2020-election-forecast/">90% chance of Biden winning</a>. Since Biden in fact won, this is one piece of evidence that I live in a world where Nate gives the more correct answers.</p>
 <p>But on the other hand, you can make a case that the prediction markets bettter estimated the <em>margin</em> of victory. The median of Nate's probability distribution was somewhere around 370 of 538 electoral college votes going to Biden:</p>
 <center>
-<img src="https://vitalik.eth.limo/images/election-files/nate_biden.png" />
+<img src="../images/election-files/nate_biden.png" />
 </center>
 <p><br></p>
 <p>The Trump markets didn't give a probability distribution, but if you <em>had to</em> guess a probability distribution from the statistic "40% chance Trump will win", you would probably give one with a median somewhere around 300 EC votes for Biden. The actual result: 306. So the net score for prediction markets vs Nate seems to me, on reflection, ambiguous.</p>
@@ -60,7 +56,7 @@
 <p>Recapping the above, here's the pipeline in diagram form:</p>
 <p><br></p>
 <center>
-<img src="https://vitalik.eth.limo/images/election-files/pipeline.png" class="padded" />
+<img src="../images/election-files/pipeline.png" class="padded" />
 </center>
 <p><br><br></p>
 <p>I did this many times; the slippage on Catnip meant that I could normally make trades only up to about $5,000 to $10,000 at a time without prices becoming too unfavorable (when I had skipped Foundry and bought NTRUMP with DAI directly, the limit was closer to $1,000). And after two months, I had accumulated over 367,000 NTRUMP.</p>
@@ -81,7 +77,7 @@
 <p>Capital costs - the inconvenience and opportunity cost of locking up large amounts of money - are a challenge that I have come to appreciate much more than I did before. Just looking at the Augur side of things, I needed to lock up 308,249 DAI for an average of about two months to make a $56,803 profit. This works out to about a 175% annualized interest rate; so far, quite a good deal, even compared to the various yield farming crazes of the summer of 2020. But this becomes worse when you take into account what I needed to do on MakerDAO. Because I wanted to keep my exposure to ETH the same, I needed to get my DAI through a CDP, and safely using a CDP required a collateral ratio of over 3x. Hence, the total amount of capital I <em>actually</em> needed to lock up was somewhere around a million dollars.</p>
 <p><br></p>
 <center>
-<img src="https://vitalik.eth.limo/images/election-files/winnings.png" style="width:50%" class="padded" /><br>
+<img src="../images/election-files/winnings.png" style="width:50%" class="padded" /><br>
 </center>
 <p><br><br></p>
 <p>Now, the interest rates are looking less favorable. And if you add to that the possibility, however remote, that a smart contract hack, or a truly unprecedented political event, actually <em>will</em> happen, it looks less favorable still.</p>
@@ -97,7 +93,7 @@
 <p>Of course, not everyone suffers from excessive modesty. Many of the people making predictions <em>in favor</em> of Trump winning the election were arguably fooled by their own excessive contrarianism. Ethereum benefited from my youthful suppression of my own modesty and fears, but there are plenty of other projects that could have benefited from more intellectual humility and avoided failures.</p>
 <p><br></p>
 <center>
-<img src="https://vitalik.eth.limo/images/election-files/q.jpg" style="width:50%"/><br><br>
+<img src="../images/election-files/q.jpg" style="width:50%"/><br><br>
 <i>Not a sufferer of excessive modesty.</i>
 </center>
 <p><br></p>
@@ -142,13 +138,13 @@
 <p>Crypto is a young ecosystem. It is an ecosystem that is still quite disconnected from the mainstream, Elon's recent tweets notwithstanding, and that does not yet have much expertise in the minutiae of electoral politics. Those who <em>are</em> experts in electoral politics have a hard time getting into crypto, and crypto has a large presence of not-always-correct forms of contrarianism especially when it comes to politics. But what happened this year is that within the crypto space, prediction market users who correctly expected Biden to win got an 18% increase to their capital, and prediction market users who incorrectly expected Trump to win got a 100% decrease to their capital (or at least the portion they put into the bet).</p>
 <p><br></p>
 <center>
-<img src="https://vitalik.eth.limo/images/election-files/chartovertime.png" class="padded" /><br>
+<img src="../images/election-files/chartovertime.png" class="padded" /><br>
 </center>
 <p><br></p>
 <p>Thus, there is a <em>selection pressure</em> in favor of the type of people who make bets that turn out to be correct. After ten rounds of this, good predictors will have more capital to bet with, and bad predictors will have less capital to bet with. This does <em>not</em> rely on anyone "getting wiser" or "learning their lesson" or any other assumption about humans' capacity to reason and learn. It is simply a result of selection dynamics that over time, participants that are good at making correct guesses will come to dominate the ecosystem.</p>
 <p>Note that prediction markets fare better than stock markets in this regard: the "nouveau riche" of stock markets often arise from getting lucky on a single thousandfold gain, adding a lot of noise to the signal, but in prediction markets, prices are bounded between 0 and 1, limiting the impact of any one single event.</p>
 <h3>Better participants and better technology</h3>
-<p>Second, prediction markets themselves will improve. User interfaces have greatly improved already, and will continue to improve further. The complexity of the MakerDAO -&gt; Foundry -&gt; Catnip cycle will be abstracted away into a single transaction. Blockchain scaling technology will improve, reducing fees for participants (The <a href="rollup.html">ZK-rollup</a> <a href="https://loopring.io/">Loopring</a> with a built-in AMM is already live on the Ethereum mainnet, and a prediction market could theoretically run on it).</p>
+<p>Second, prediction markets themselves will improve. User interfaces have greatly improved already, and will continue to improve further. The complexity of the MakerDAO -&gt; Foundry -&gt; Catnip cycle will be abstracted away into a single transaction. Blockchain scaling technology will improve, reducing fees for participants (The <a href="../index.html#rollup">ZK-rollup</a> <a href="https://loopring.io/">Loopring</a> with a built-in AMM is already live on the Ethereum mainnet, and a prediction market could theoretically run on it).</p>
 <p>Third, the demonstration that we saw of the prediction market working correctly will ease participants' fears. Users will see that the Augur oracle is capable of giving correct outputs even in very contentious situations (this time, there were two rounds of disputes, but the no side nevertheless cleanly won). People from outside the crypto space will see that the process works and be more inclined to participate. Perhaps even Nate Silver himself might get some DAI and use Augur, Omen, Polymarket and other markets to supplement his income in 2022 and beyond.</p>
 <p>Fourth, prediction market tech itself could improve. <a href="https://ethresear.ch/t/prediction-market-design-for-betting-on-many-highly-improbable-events/8280">Here is a proposal from myself</a> on a market design that could make it more capital-efficient to simultaneously bet against many unlikely events, helping to prevent unlikely outcomes from getting irrationally high odds. Other ideas will surely spring up, and I look forward to seeing more experimentation in this direction.</p>
 <h2>Conclusion</h2>

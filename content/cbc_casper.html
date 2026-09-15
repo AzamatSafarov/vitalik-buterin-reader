@@ -1,13 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A CBC Casper Tutorial — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>A CBC Casper Tutorial</h1><div class="meta"><span>2018-12-05</span><span>2358 words</span><a href="https://vitalik.eth.limo/general/2018/12/05/cbc_casper.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/cbc_casper.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Blockchains</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p><em>Special thanks to Vlad Zamfir, Aditya Asgaonkar, Ameen Soleimani and Jinglan Wang for review</em></p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A CBC Casper Tutorial — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>A CBC Casper Tutorial</h1><div class="meta-row"><span class="pill">2018-12-05</span><span class="pill">2358 words</span><a class="pill" href="https://vitalik.eth.limo/general/2018/12/05/cbc_casper.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/cbc_casper.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag">General</span><span class="tag">Blockchains</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p><em>Special thanks to Vlad Zamfir, Aditya Asgaonkar, Ameen Soleimani and Jinglan Wang for review</em></p>
 <p>In order to help more people understand "the other Casper" (Vlad Zamfir's CBC Casper), and specifically the instantiation that works best for blockchain protocols, I thought that I would write an explainer on it myself, from a less abstract and more "close to concrete usage" point of view. Vlad's descriptions of CBC Casper can be found <a href="https://www.youtube.com/watch?v=GNGbd_RbrzE">here</a> and <a href="https://github.com/ethereum/cbc-casper/wiki/FAQ">here</a> and <a href="https://github.com/cbc-casper/cbc-casper-paper">here</a>; you are welcome and encouraged to look through these materials as well.</p>
 <p>CBC Casper is designed to be fundamentally very versatile and abstract, and come to consensus on pretty much any data structure; you can use CBC to decide whether to choose 0 or 1, you can make a simple block-by-block chain run on top of CBC, or a $2^{92}$-dimensional hypercube tangle DAG, and pretty much anything in between.</p>
 <p>But for simplicity, we will first focus our attention on one concrete case: a simple chain-based structure. We will suppose that there is a fixed validator set consisting of $N$ validators (a fancy word for "staking nodes"; we also assume that each node is staking the same amount of coins, cases where this is not true can be simulated by assigning some nodes multiple validator IDs), time is broken up into ten-second slots, and validator $k$ can create a block in slot $k$, $N + k$, $2N + k$, etc. Each block points to one specific parent block. Clearly, if we wanted to make something maximally simple, we could just take this structure, impose a longest chain rule on top of it, and call it a day.</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain3.png" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain3.png" class="padded" /><br><br>
 <small><i>The green chain is the longest chain (length 6) so it is considered to be the "canonical chain".</i></small>
 </center>
 
@@ -16,23 +12,23 @@
 <h3>LMD GHOST</h3>
 <p>We will take this one step at a time. First, we replace the fork choice rule (the rule that chooses which chain among many possible choices is "the canonical chain", ie. the chain that users should care about), moving away from the simple longest-chain-rule and instead using "latest message driven GHOST". To show how LMD GHOST works, we will modify the above example. To make it more concrete, suppose the validator set has size 5, which we label $A$, $B$, $C$, $D$, $E$, so validator $A$ makes the blocks at slots 0 and 5, validator $B$ at slots 1 and 6, etc. A client evaluating the LMD GHOST fork choice rule cares only about the most recent (ie. highest-slot) message (ie. block) signed by each validator:</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain4.png" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain4.png" class="padded" /><br><br>
 <small><i>Latest messages in blue, slots from left to right (eg. $A$'s block on the left is at slot 0, etc.)</i></small>
 </center>
 <p><br></p>
 <p>Now, we will use only these messages as source data for the "greedy heaviest observed subtree" (GHOST) fork choice rule: start at the genesis block, then each time there is a fork choose the side where more of the latest messages support that block's subtree (ie. more of the latest messages support either that block or one of its descendants), and keep doing this until you reach a block with no children. We can compute for each block the subset of latest messages that support either the block or one of its descendants:</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain5.png" class="padded" /><br>
+<img src="../images/cbc-casper-files/Chain5.png" class="padded" /><br>
 </center>
 <p><br></p>
 <p>Now, to compute the head, we start at the beginning, and then at each fork pick the higher number: first, pick the bottom chain as it has 4 latest messages supporting it versus 1 for the single-block top chain, then at the next fork support the middle chain. The result is the same longest chain as before. Indeed, in a well-running network (ie. the orphan rate is low), almost all of the time LMD GHOST and the longest chain rule <em>will</em> give the exact same answer. But in more extreme circumstances, this is not always true. For example, consider the following chain, with a more substantial three-block fork:</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain6.png" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain6.png" class="padded" /><br><br>
 <small><i>Scoring blocks by chain length. If we follow the longest chain rule, the top chain is longer, so the top chain wins.</i></small><br>
 </center>
 <p><br></p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain7.png" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain7.png" class="padded" /><br><br>
 <small><i>Scoring blocks by number of supporting latest messages and using the GHOST rule (latest message from each validator shown in blue). The bottom chain has more recent support, so if we follow the LMD GHOST rule the bottom chain wins, though it's not yet clear which of the three blocks takes precedence.</i></small>
 </center>
 <p><br></p>
@@ -40,17 +36,17 @@
 <h3>Detecting finality</h3>
 <p>But the LMD GHOST approach has another nice property: it's <em>sticky</em>. For example, suppose that for two rounds, $\frac{4}{5}$ of validators voted for the same chain (we'll assume that the one of the five validators that did not, $B$, is attacking):</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain8.png" class="padded" /><br>
+<img src="../images/cbc-casper-files/Chain8.png" class="padded" /><br>
 </center>
 <p><br></p>
 <p>What would need to actually happen for the chain on top to become the canonical chain? Four of five validators built on top of $E$'s first block, and all four recognized that $E$ had a high score in the LMD fork choice. Just by looking at the structure of the chain, we can know for a fact at least some of the messages that the validators must have seen at different times. Here is what we know about the four validators' views:</p>
 <center>
 <table class="transparent centered" cellpadding="20px"><tr>
-<td><img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain9.png" width="320px" class="padded" /><br><br><i>A's view</i></td>
-<td><img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain10.png" width="320px" class="padded" /><br><br><i>C's view</i></td>
+<td><img src="../images/cbc-casper-files/Chain9.png" width="320px" class="padded" /><br><br><i>A's view</i></td>
+<td><img src="../images/cbc-casper-files/Chain10.png" width="320px" class="padded" /><br><br><i>C's view</i></td>
 </tr><tr>
-<td><img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain11.png" width="320px" class="padded" /><br><br><i>D's view</i></td>
-<td><img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain11point5.png" width="320px" class="padded" /><br><br><i>E's view</i></td>
+<td><img src="../images/cbc-casper-files/Chain11.png" width="320px" class="padded" /><br><br><i>D's view</i></td>
+<td><img src="../images/cbc-casper-files/Chain11point5.png" width="320px" class="padded" /><br><br><i>E's view</i></td>
 </tr></table>
 <small><i>Blocks produced by each validator in green, the latest messages we know that they saw from each of the other validators in blue.</i></small>
 </center>
@@ -59,7 +55,7 @@
 <p>$A$'s view contains four latest-messages supporting the bottom chain, and none supporting $B$'s block. Hence, in (our simulation of) $A$'s eyes the score in favor of the bottom chain is <em>at least</em> 4-1. The views of $C$, $D$ and $E$ paint a similar picture, with four latest-messages supporting the bottom chain. Hence, all four of the validators are in a position where they cannot change their minds unless two other validators change their minds first to bring the score to 2-3 in favor of $B$'s block.</p>
 <p>Note that our simulation of the validators' views is "out of date" in that, for example, it does not capture that $D$ and $E$ could have seen the more recent block by $C$. However, this does not alter the calculation for the top vs bottom chain, because we can very generally say that any validator's new message will have the same opinion as their previous messages, unless two other validators have already switched sides first.</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain12.png" width="700px" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain12.png" width="700px" class="padded" /><br><br>
 <small>
 
 _A minimal viable attack. $A$ and $C$ illegally switch over to support $B$'s block (and can get penalized for this), giving it a 3-2 advantage, and at this point it becomes legal for $D$ and $E$ to also switch over._
@@ -76,13 +72,13 @@ _A minimal viable attack. $A$ and $C$ illegally switch over to support $B$'s blo
 <h3>Going Further</h3>
 <p>CBC can be extended further in many ways. First, one can come up with other safety oracles; higher-round clique oracles can reach $\frac{1}{3}$ fault tolerance. Second, we can add validator rotation mechanisms. The simplest is to allow the validator set to change by a small percentage every time the $q=\frac{3}{4}$ clique oracle is satisfied, but there are other things that we can do as well. Third, we can go beyond chain-like structures, and instead look at structures that increase the density of messages per unit time, like the Serenity beacon chain's attestation structure:</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain13.png" class="padded" /><br>
+<img src="../images/cbc-casper-files/Chain13.png" class="padded" /><br>
 </center>
 <p><br></p>
 <p>In this case, it becomes worthwhile to separate <em>attestations</em> from <em>blocks</em>; a block is an object that actually grows the underlying DAG, whereas an attestation contributes to the fork choice rule. In the <a href="http://github.com/ethereum/eth2.0-specs">Serenity beacon chain spec</a>, each block may have hundreds of attestations corresponding to it. However, regardless of which way you do it, the core logic of CBC Casper remains the same.</p>
 <p>To make CBC Casper's safety "cryptoeconomically enforceable", we need to add validity and slashing conditions. First, we'll start with the validity rule. A block contains both a parent block and a set of attestations that it knows about that are not yet part of the chain (similar to "uncles" in the current Ethereum PoW chain). For the block to be valid, the block's parent must be the result of executing the LMD GHOST fork choice rule given the information included in the chain including in the block itself.</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain14.png" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain14.png" class="padded" /><br><br>
 <small><i>Dotted lines are uncle links, eg. when E creates a block, E notices that C is not yet part of the chain, and so includes a reference to C.</i></small>
 </center>
 
@@ -90,8 +86,8 @@ _A minimal viable attack. $A$ and $C$ illegally switch over to support $B$'s blo
 <p>We now can make CBC Casper safe with only one slashing condition: you cannot make two attestations $M_1$ and $M_2$, unless either $M_1$ is in the chain that $M_2$ is attesting to or $M_2$ is in the chain that $M_2$ is attesting to.</p>
 <center>
 <table class="transparent centered" cellpadding="20px"><tr>
-<td><img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain15.png" width="300px" class="padded" /><br>OK</td>
-<td><img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain16.png" width="300px" class="padded" /><br>Not OK</td>
+<td><img src="../images/cbc-casper-files/Chain15.png" width="300px" class="padded" /><br>OK</td>
+<td><img src="../images/cbc-casper-files/Chain16.png" width="300px" class="padded" /><br>Not OK</td>
 </tr></table>
 </center>
 
@@ -99,17 +95,17 @@ _A minimal viable attack. $A$ and $C$ illegally switch over to support $B$'s blo
 <p>Liveness in CBC Casper piggybacks off of the liveness of whatever the underlying chain algorithm is (eg. if it's one-block-per-slot, then it depends on a synchrony assumption that all nodes will see everything produced in slot $N$ before the start of slot $N+1$). It's not possible to get "stuck" in such a way that one cannot make progress; it's possible to get to the point of finalizing new blocks from any situation, even one where there are attackers and/or network latency is higher than that required by the underlying chain algorithm.</p>
 <p>Suppose that at some time $T$, the network "calms down" and synchrony assumptions are once again satisfied. Then, everyone will converge on the same view of the chain, with the same head $H$. From there, validators will begin to sign messages supporting $H$ or descendants of $H$. From there, the chain can proceed smoothly, and will eventually satisfy a clique oracle, at which point $H$ becomes finalized.</p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain17.png" height="100px" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain17.png" height="100px" class="padded" /><br><br>
 <small><i>Chaotic network due to high latency.</i></small><br>
 </center>
 <p><br></p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain18.png" height="100px" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain18.png" height="100px" class="padded" /><br><br>
 <small><i>Network latency subsides, a majority of validators see all of the same blocks or at least enough of them to get to the same head when executing the fork choice, and start building on the head, further reinforcing its advantage in the fork choice rule.</i></small><br>
 </center>
 <p><br></p>
 <center>
-<img src="https://vitalik.eth.limo/images/cbc-casper-files/Chain19.png" height="100px" class="padded" /><br><br>
+<img src="../images/cbc-casper-files/Chain19.png" height="100px" class="padded" /><br><br>
 <small><i>Chain proceeds "peacefully" at low latency. Soon, a clique oracle will be satisfied.</i></small>
 </center>
 <p><br></p>

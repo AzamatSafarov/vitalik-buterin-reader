@@ -1,12 +1,8 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The near and mid-term future of improving the Ethereum network&#x27;s permissionlessness and decentralization — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>The near and mid-term future of improving the Ethereum network&#x27;s permissionlessness and decentralization</h1><div class="meta"><span>2024-05-17</span><span>3575 words</span><a href="https://vitalik.eth.limo/general/2024/05/17/decentralization.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/decentralization.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag theme">Economics and public goods</span><span class="tag">General</span><span class="tag">Blockchains</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p><em>Special thanks to Dankrad Feist, Caspar Schwarz-Schilling and Francesco for rapid feedback and review.</em></p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The near and mid-term future of improving the Ethereum network&#x27;s permissionlessness and decentralization — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>The near and mid-term future of improving the Ethereum network&#x27;s permissionlessness and decentralization</h1><div class="meta-row"><span class="pill">2024-05-17</span><span class="pill">3575 words</span><a class="pill" href="https://vitalik.eth.limo/general/2024/05/17/decentralization.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/decentralization.md">GitHub source</a></div><div><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag theme">Economics and public goods</span><span class="tag">General</span><span class="tag">Blockchains</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p><em>Special thanks to Dankrad Feist, Caspar Schwarz-Schilling and Francesco for rapid feedback and review.</em></p>
 <p>I am sitting here writing this on the final day of an Ethereum developer interop in Kenya, where we made a large amount of progress implementing and ironing out technical details of important upcoming Ethereum improvements, most notably <a href="https://ethresear.ch/t/peerdas-a-simpler-das-approach-using-battle-tested-p2p-components/16541">PeerDAS</a>, the <a href="https://verkle.info/">Verkle tree transition</a> and decentralized approaches to storing history in the context of <a href="https://eips.ethereum.org/EIPS/eip-4444">EIP 4444</a>. From my own perspective, it feels like the pace of Ethereum development, and our capacity to ship large and important features that meaningfully improve the experience for node operators and (L1 and L2) users, is increasing.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/decentralization/upload_2b9db82459e86d2206be6282e3af9483.png)
+![](../images/decentralization/upload_2b9db82459e86d2206be6282e3af9483.png)
 
 <small><i>Ethereum client teams working together to ship the Pectra devnet.</i></small>
 
@@ -14,8 +10,8 @@
 <p><br></p>
 <p>Given this greater technical capacity, one important question to be asking is: <strong>are we building toward the right goals?</strong> One prompt for thinking about this is a recent series of unhappy tweets from the long-time Geth core developer Peter Szilagyi:</p>
 <p><br><center></p>
-<p><img alt="" src="https://vitalik.eth.limo/images/decentralization/upload_9faddc0f088e11458f1009b4d6bac86b.png" />
-<img alt="" src="https://vitalik.eth.limo/images/decentralization/upload_d24f6d5bcf23ab48a8c120738685bd17.png" /></p>
+<p><img alt="" src="../images/decentralization/upload_9faddc0f088e11458f1009b4d6bac86b.png" />
+<img alt="" src="../images/decentralization/upload_d24f6d5bcf23ab48a8c120738685bd17.png" /></p>
 <p></center><br></p>
 <p>These are valid concerns. They are concerns that many people in the Ethereum community have expressed. They are concerns that I have on many occasions had personally. However, I also do not think that the situation is anywhere near as hopeless as Peter's tweets imply; rather, many of the concerns are already being addressed by protocol features that are already in-progress, and many others can be addressed by very realistic tweaks to the current roadmap.</p>
 <p>In order to see what this means in practice, let us go through the three examples that Peter provided one by one. The goal is not to focus on Peter specifically; they are concerns that are widely shared among many community members, and it's important to address them.</p>
@@ -25,7 +21,7 @@
 <p>For example, consider decentralized exchanges like Uniswap. Suppose that at time <code>T</code>, the USD/ETH exchange rate - on centralized exchanges and on Uniswap - is $3000. At time <code>T+11</code>, the USD/ETH exchange rate on centralized exchanges rises to $3005. But Ethereum has not yet had its next block. At time <code>T+12</code>, it does. Whoever creates the block can make their first transaction be a series of Uniswap buys, buying up all of the ETH available on Uniswap at prices from $3000 to $3004. This is extra revenue, and is called MEV. Applications other than DEXes have their own analogues to this problem. The <a href="https://arxiv.org/abs/1904.05234">Flash Boys 2.0 paper</a> published in 2019 goes into this in detail.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/decentralization/upload_20bedf3433084ded7d3d0254c860d97f.png)
+![](../images/decentralization/upload_20bedf3433084ded7d3d0254c860d97f.png)
 
 <small><i>A chart from the Flash Boys 2.0 paper that shows the amount of revenue capturable using the kinds of approaches described above.</i></small>
 
@@ -39,7 +35,7 @@
 <p>This is where <strong>inclusion lists</strong> come in.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/decentralization/17c9ae8c2f65fde9dbf814376563b338b1d0aff7.png)
+![](../images/decentralization/17c9ae8c2f65fde9dbf814376563b338b1d0aff7.png)
 
 <small><i>Source: [this ethresear.ch post](https://ethresear.ch/t/how-much-can-we-constrain-builders-without-bringing-back-heavy-burdens-to-proposers/13808).</i></small>
 
@@ -54,7 +50,7 @@
 <p>Today, solo stakers make up a relatively small percentage of all Ethereum staking, and most staking is done by various providers - some centralized operators, and others DAOs, like Lido and RocketPool.</p>
 <center><br>
 
-[![](https://vitalik.eth.limo/images/decentralization/upload_62f80a14ec8c47ca6bc94321a9719d3b.png)](https://dune.com/21co/ethereum-staking-and-withdrawals)
+[![](../images/decentralization/upload_62f80a14ec8c47ca6bc94321a9719d3b.png)](https://dune.com/21co/ethereum-staking-and-withdrawals)
 
 </center>
 <p><br></p>
@@ -65,9 +61,9 @@
 <li>The loss of instant availability of ETH, the security risks of "hot" private keys, and the loss of ability to simultaneously participate in defi protocols, are significant but smaller concerns.</li>
 </ol>
 <p><br><table><tr><td></p>
-<p><img alt="" src="https://vitalik.eth.limo/images/decentralization/upload_ff62878744ee12ff1009dbfd7e345b0b.png" /></p>
+<p><img alt="" src="../images/decentralization/upload_ff62878744ee12ff1009dbfd7e345b0b.png" /></p>
 <p></td><td></p>
-<p><img alt="" src="https://vitalik.eth.limo/images/decentralization/upload_3e3500a63e892f8043f704b4192a40cf.png" /></p>
+<p><img alt="" src="../images/decentralization/upload_3e3500a63e892f8043f704b4192a40cf.png" /></p>
 <p></td></tr></table></p>
 <center><small><i>The main reasons why people are not solo staking, according to Farcaster polls.</i></small></center>
 <p><br></p>
@@ -92,7 +88,7 @@
 <p>As I wrote above, EIP-4444 and Verkle trees are two key technologies that get us closer to this ideal. If both are implemented, hardware requirements of a node could plausibly eventually decrease to less than a hundred gigabytes, and perhaps to near-zero if we eliminate the history storage responsibility (perhaps only for non-staking nodes) entirely. <a href="https://vitalik.eth.limo/general/2022/08/04/zkevm.html">Type 1 ZK-EVMs</a> would remove the need to run EVM computation yourself, as you could instead simply verify a proof that the execution was correct. In my ideal world, we stack all of these technologies together, and even Ethereum browser extension wallets (eg. Metamask, Rabby) have a built-in node that verifies these proofs, does data availability sampling, and is satisfied that the chain is correct.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/decentralization/upload_e1a96a272fe0d1918574a89351aa1a9b.png)
+![](../images/decentralization/upload_e1a96a272fe0d1918574a89351aa1a9b.png)
 
 <small><i>The vision described above is often called "The Verge".</i></small>
 
@@ -103,7 +99,7 @@
 <p>However, this arguments relies on dependence on a small number of large actors. In my <a href="https://vitalik.eth.limo/general/2020/08/20/trust.html">taxonomy of trust models</a>, it's a 1-of-N assumption, but the N is pretty small. This has its tail risks. One thing that we could do instead is to <strong>store old history in a peer-to-peer network, where each node only stores a small percentage of the data</strong>. This kind of network would still do enough copying to ensure robustness: there would be thousands of copies of each piece of data, and in the future we could use erasure coding (realistically, by putting history into <a href="https://www.eip4844.com/">EIP-4844</a>-style blobs, which already have erasure coding built in) to increase robustness further.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/decentralization/upload_baf4295d029cf62b9e2209fe9a441e19.png)
+![](../images/decentralization/upload_baf4295d029cf62b9e2209fe9a441e19.png)
 
 <small><i>Blobs have erasure coding _within blobs_ and _between blobs_. The easiest way to make ultra-robust storage for _all_ of Ethereum's history may well be to just put beacon and execution blocks into blobs. [Image source: codex.storage](https://blog.codex.storage/data-availability-sampling/)</i></small>
 
@@ -116,7 +112,7 @@
 <p>I think it is actually true that 2021-era Ethereum thought became too comfortable with offloading responsibilities to a small number of large-scale actors, as long as some kind of market mechanism or zero knowledge proof system existed to force the centralized actors to behave honestly. Such systems often work well in the average case, but fail catastrophically in the worst case.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/decentralization/upload_e11227e1cca3b2a12fc01b87a95f3adc.jpeg)
+![](../images/decentralization/upload_e11227e1cca3b2a12fc01b87a95f3adc.jpeg)
 
 <i>We're not doing this.</i>
 

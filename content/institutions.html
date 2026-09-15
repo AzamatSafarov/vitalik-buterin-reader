@@ -1,22 +1,18 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>What even is an institution? — Vitalik Reader</title><style>
-:root{--bg:#f6f3ea;--paper:#fffdfa;--card:#ffffff;--text:#151515;--muted:#66635c;--line:#ded8c8;--soft:#8d877a;--accent:#c96442;--blue:#386b8f;--green:#68745c;--yellow:#d6a63d;--shadow:rgba(20,20,19,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.56}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 50px}.hero{background:linear-gradient(135deg,#fffdf8,#f8efe8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 55px var(--shadow)}h1{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.08;font-weight:500;margin:0 0 10px}h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:500;margin:34px 0 14px}h3{margin:0 0 8px}.lead{font-size:17px;color:var(--muted);max-width:920px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:310px 1fr;gap:18px;margin-top:22px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 34px var(--shadow);position:sticky;top:18px;align-self:start}.content{min-width:0}.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:14px}.filter{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted)}.btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;box-shadow:0 8px 28px var(--shadow)}.card.featured{border-left:5px solid var(--accent)}.meta{font-size:12px;color:var(--soft);display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}.tag{display:inline-block;background:#f0eadc;border:1px solid #e1dac8;border-radius:999px;padding:3px 7px;font-size:11px;color:#4a463f}.tag.theme{background:#eef4ee;color:#3f583a}.excerpt{font-size:13.5px;color:var(--muted)}.article{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:0 14px 40px var(--shadow)}.article h1{font-size:40px}.article h2{font-size:26px;border-top:1px solid var(--line);padding-top:22px}.article img{max-width:100%;height:auto}.article blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:16px 0;background:#fff8f4;color:#3f3b35}.article code{background:#eee8da;padding:2px 5px;border-radius:6px}.article pre{overflow:auto;background:#1e1e1e;color:#f2f2f2;padding:14px;border-radius:14px}.back{display:inline-block;margin-bottom:18px}.note{background:#fff8f4;border:1px solid #ead4c8;border-left:5px solid var(--accent);border-radius:16px;padding:12px 14px;color:var(--muted)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.panel{position:static}.wrap{padding:16px}.article{padding:18px}h1{font-size:34px}}
-</style></head><body><div class="wrap"><a class="back" href="../index.html">← Index</a><article class="article"><h1>What even is an institution?</h1><div class="meta"><span>2022-12-30</span><span>2198 words</span><a href="https://vitalik.eth.limo/general/2022/12/30/institutions.html">original</a><a href="https://github.com/vbuterin/blog/blob/main/posts/institutions.md">GitHub source</a></div><div><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag theme">Economics and public goods</span><span class="tag theme">Philosophy and politics</span><span class="tag">General</span><span class="tag">Philosophy</span></div><div class="note">Local reading copy generated from Vitalik Buterin's official GitHub blog repository. Use the original/GitHub links for citation verification.</div><p><em>Special thanks to Dennis Pourteaux and Tina Zhen for discussion that led to this post.</em></p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>What even is an institution? — Vitalik Reader</title><link rel="stylesheet" href="../styles.css"></head><body><div class="main" style="height:auto;overflow:visible"><article class="reader"><h1>What even is an institution?</h1><div class="meta-row"><span class="pill">2022-12-30</span><span class="pill">2198 words</span><a class="pill" href="https://vitalik.eth.limo/general/2022/12/30/institutions.html">original</a><a class="pill" href="https://github.com/vbuterin/blog/blob/main/posts/institutions.md">GitHub source</a></div><div><span class="tag theme">Governance and institutions</span><span class="tag theme">Validation and trust models</span><span class="tag theme">Ethereum protocol</span><span class="tag theme">Economics and public goods</span><span class="tag theme">Philosophy and politics</span><span class="tag">General</span><span class="tag">Philosophy</span></div><div class="notice">Reading copy generated from the official GitHub repository. Use original/GitHub links for citation verification.</div><p><em>Special thanks to Dennis Pourteaux and Tina Zhen for discussion that led to this post.</em></p>
 <p>A recent alternative political compass proposed by Dennis Pourteaux proposes that the most important political divide of our present time is not liberty vs authoritarianism or left vs right, <a href="https://pourteaux.substack.com/p/institutional-alignment">but rather how we think about "institutions"</a>. Are the institutions that society runs on today good or bad, and is the solution to work incrementally to improve them, replace them with radically different institutions, or do away with institutions altogether?</p>
 <p><br><center><img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1b7ab13d-2733-4de9-a9f0-50e2ecfdcfed_1024x924.png" style="width:450px" /></center><br></p>
 <p>This, however, raises a really important question: <strong>what even is an "institution" anyway?</strong></p>
 <p>The word "institution" in political discourse brings to mind things like national governments, the New York Times, universities and <em>maybe</em> the local public library. But the word also gets used to describe other kinds of things. The phrase "the institution of marriage" is common in English-language discourse, and gets <a href="https://www.google.com/search?q=%22the+institution+of+marriage%22">over two million search results</a> on Google. If you ask Google point-blank, "is family an institution", it answers yes.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/institutions/google_answer.png)
+![](../images/institutions/google_answer.png)
 
 </center>
 <p><br></p>
 <p>ChatGPT agrees:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/institutions/chatgpt_answer.png)
+![](../images/institutions/chatgpt_answer.png)
 
 </center>
 <p><br></p>
@@ -38,25 +34,25 @@
 <p>Over the past week, I made a <a href="https://cryptodon.lol/@vbuterin/109570542347764470">series</a> of <a href="https://cryptodon.lol/@vbuterin/109576148299374533">polls</a> on Mastodon where I provided many examples of different objects, practices and social structures, and asked: is this an institution or not? In some cases, I made different spins on the same concept to see the effects of changing some specific variables. There were some fascinating results.</p>
 <p>Here are a few examples:</p>
 <p><br>
-<img src="https://vitalik.eth.limo/images/institutions/m1.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/m2.png" style="height:320px; padding-bottom: 20px" />
+<img src="../images/institutions/m1.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/m2.png" style="height:320px; padding-bottom: 20px" />
 <br><br></p>
 <p>And:</p>
 <p><br>
-<img src="https://vitalik.eth.limo/images/institutions/m3.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/m4.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/m5.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/m3.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/m4.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/m5.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
 <br><br></p>
 <p>And:</p>
 <p><br>
-<img src="https://vitalik.eth.limo/images/institutions/m6.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/m7.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/m6.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/m7.png" style="height:320px; padding-right: 20px; padding-bottom: 20px" />
 <br><br></p>
 <p>And, of course:</p>
 <p><br>
-<img src="https://vitalik.eth.limo/images/institutions/m8.png" style="height:250px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/m9.png" style="height:250px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/mx.png" style="height:250px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/m8.png" style="height:250px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/m9.png" style="height:250px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/mx.png" style="height:250px; padding-right: 20px; padding-bottom: 20px" />
 <br><br></p>
 <p>There's more fun ones: <a href="https://cryptodon.lol/@vbuterin/109570543708271381">NYT</a> vs <a href="https://cryptodon.lol/@vbuterin/109570629589076709">Russia Today</a> vs <a href="https://cryptodon.lol/@vbuterin/109570548373455136">Bitcoin Magazine</a>, the <a href="https://cryptodon.lol/@vbuterin/109576276734493858">solar system</a> vs <a href="https://cryptodon.lol/@vbuterin/109576290616996040">what if we started re-engineering it</a>, <a href="https://cryptodon.lol/@vbuterin/109576149554493641">prediction markets</a>, various <a href="https://cryptodon.lol/@vbuterin/109570587677425299">social</a> <a href="https://cryptodon.lol/@vbuterin/109570583709002906">customs</a>, and a lot more.</p>
 <p>Here, we can already start to see some common factors. Marriage is more institution-y than romantic relationships, likely because of its official stamp of recognition, and more mainstream relationship styles are more institution-y than less mainstream styles (a pattern that repeats itself when comparing NYT vs Russia Today vs Bitcoin Magazine). Systems with clearly visible human beings making decisions are more institution-y than more impersonal algorithmic structures, even if their outputs are ultimately entirely a function of human-provided inputs.</p>
@@ -102,18 +98,18 @@
 <p>But as it turns out, the correlations are misleading. "Interaction between people" turns out to be an almost unquestionably <em>necessary</em> property for something to have to be an institution. The correlation of 0.57 <em>kind of</em> shows it, but it understates the strength of the relationship:</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/institutions/correl1.png)
+![](../images/institutions/correl1.png)
 
 </center>
 <p><br></p>
 <p>Literally <em>every</em> thing that I labeled as clearly involving interaction had a higher percentage of people considering it an institution than <em>every</em> thing I labeled as not involving interaction. The single dot in the center is my hypothetical example of an island where people with odd-numbered birthdays are not allowed to eat meat before 12:00; I didn't want to give it 100% because the not-meat-eating is a private activity, but the question still strongly implies some social or other pressure to follow the rule so it's also not really 0%. This is a place where <a href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman's coefficient</a> outperforms Pearson's, but rather than spurting out exotic numbers I'd rather just show the charts. Here are the other six:</p>
 <p><br>
-<img src="https://vitalik.eth.limo/images/institutions/correl2.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/correl3.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/correl4.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/correl5.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/correl6.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
-<img src="https://vitalik.eth.limo/images/institutions/correl7.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/correl2.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/correl3.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/correl4.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/correl5.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/correl6.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
+<img src="../images/institutions/correl7.png" style="width: 340px; padding-right: 20px; padding-bottom: 20px" />
 <br><br></p>
 <p>The most surprising finding for me is that <strong>"roles independent of individuals" is by far the weakest correlation</strong>. Twitter run by a democracy is the most institution-y of all, but Twitter run by a pay-to-govern scheme is as institution-y as Twitter that's just run by Elon directly. Roles being independent of individuals adds a guarantee of stability, but roles being independent of individuals <em>in the wrong way</em> feels too unfamiliar, or casual, or otherwise not institution-like. Dating sites are more independent of individuals than professional matchmaking agencies, and yet it's the matchmaking agencies that are seen as more institution-like. Attempts at highly role-driven and mechanistic credibly-neutral media, (eg. <a href="https://cryptodon.lol/@vbuterin/109576172987142068">this contraption</a>, which I actually think would be really cool) just feel <em>alien</em> - perhaps in a bad way, but also perhaps in a good way, if you find the institutions of today frustrating and you're open-minded about possible alternatives.</p>
 <p>Correlations with "masses recognize elites" and "elites oversee experts" were high; higher for the second than the first, though perhaps Hanson and I had different meanings in mind for "recognize". The "intentional structure" chart has an empty bottom-right corner but a full top-left corner, suggesting that <strong>intentional structure is necessary but not sufficient for something to be an institution</strong>.</p>
@@ -130,7 +126,7 @@
 <p>From a language point of view, <strong>even using the word "institution" at all seems more likely to confuse than enlighten at this point</strong>. There is a crucial difference between (i) a desire to replace structures that contain enshrined elite roles with structures that don't, (ii) a preference for small-scale and informal structures over large-scale and formal ones, (iii) a desire to simply swap the current elites out for new elites, and (iv) a kind of social libertinist position that individuals should be driven by their own whims and not by incentives created by other people. The word "institution" obscures that divide, and probably focuses too much attention on what is being torn down rather than what is to be built up in its place.</p>
 <center><br>
 
-![](https://vitalik.eth.limo/images/institutions/whichway.png)
+![](../images/institutions/whichway.png)
 
 <small><i>Different anti-institutionalists have different goals in mind. Sure, the person on Twitter delivering that powerful incisive criticism of the New York Times agrees with you on how society **should not** be run, but are you sure they'll be your ally when it comes time to decide how society **should** be run?</i></small>
 
