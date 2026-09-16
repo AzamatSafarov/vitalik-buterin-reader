@@ -2,7 +2,7 @@
 <p>近來各家 ZK-EVM 紛紛登場。<a href="https://blog.polygon.technology/the-future-is-now-for-ethereum-scaling-introducing-polygon-zkevm/">Polygon</a> 的 ZK-EVM 以開源的方式釋出，<a href="https://blog.matter-labs.io/100-days-to-mainnet-6f230893bd73?gi=1bc4e1596b2d">ZKSync</a> 公佈了 ZKSync 2.0 的規劃，相對晚進場的 <a href="https://scroll.mirror.xyz/XQyXDgyxoefag6hcBgGJFz8qrb10rmSU-zUBvY3Q9_A">Scroll</a> 也推出了他們的 ZK-EVM。正在開發 ZK-EVM 的，還有 <a href="https://github.com/privacy-scaling-explorations/zkevm-circuits">PSE</a>, <a href="https://ethresear.ch/t/a-zk-evm-specification/11549">Nicholas Liochon 等人</a>，以及 Starkware 正在開發的 <a href="https://medium.com/starkware/starknet-alpha-2-4aa116f0ecfc">alpha compiler</a> (能把 EVM 編譯成 Starkware 所開發的 <a href="https://starkware.co/cairo/">Cairo</a>)，族繁不及備載。</p>
 <p>上述專案有一個共同的目標：利用 <a href="../index.html#snarks">ZK-SNARK</a> 進行密碼學證明，驗證以太坊生態（Ethereum-like）交易的執行。這樣更好驗證以太坊 L1 鏈上的交易與狀態，也建立（接近）與以太等價且擴展性更好的 <a href="../index.html#rollup">ZK-rollups</a>。但這幾個專案之間的些微的差異，反映在實用性和速度之間的取捨。本文試著提出分類不同 EVM 的方法，並說明其中的利弊得失。</p>
 <h2>懶人包（以圖表呈現）</h2>
-<p><img alt="zkevm" src="https://user-images.githubusercontent.com/85469891/186605516-b6e9a19a-895d-4e36-b7b9-729bb2b198d0.png" /></p>
+<p><img alt="zkevm" src="../images/_remote/186605516-b6e9a19a-895d-4e36-b7b9-729bb2b198d0_7d0d7fa792dccf4b.png" /></p>
 <h2>第 1 類：等價以太坊（fully Ethereum-equivalent）的 ZK-EVM</h2>
 <p>第 1 類 ZK-EVM 志在完整、毫無妥協的達到以太坊等價。它沒有改動以太坊生態任何部份的設計以讓證明更簡單，也沒有換掉雜湊的運算（hashes）、狀態樹（state trees）、交易樹（transaction trees）、預編譯的合約（precompiles)，而且再怎麼邊陲的共識邏輯（in-consensus logic），都沒有換掉。</p>
 <h3>優點：完美的相容性</h3>
